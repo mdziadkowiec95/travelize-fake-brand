@@ -1,3 +1,5 @@
+/* section PLANS part */
+
 const plansParent = document.querySelector('.plans');
 const buttons = document.querySelectorAll('.plans-box');
 const contentDivs = document.querySelectorAll('.plans-content');
@@ -7,7 +9,6 @@ plansParent.addEventListener('click', function(e) {
         const clickedBox = e.target;
         const clickedBoxText = clickedBox.textContent;
         
-     
         for (let i = 0; i < contentDivs.length; i++) {
             let currentDiv = contentDivs[i];
             
@@ -22,9 +23,6 @@ plansParent.addEventListener('click', function(e) {
 
     } 
 });
-
-
-
 
 
 

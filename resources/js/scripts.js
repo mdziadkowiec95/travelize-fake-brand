@@ -35,13 +35,13 @@ var $about = $(".section-about");
 $(document).ready(function () {
     
     // ARROW - slide down
-//    
-//    $('#arrow-down').click(function () {
-//    $('body,html').animate({
-//      scrollTop: $about.offset().top
-//    }, 1000, function () { })
-//  });
-//    
+    
+    $('#arrow-down').click(function () {
+    $('body,html').animate({
+      scrollTop: $about.offset().top
+    }, 1000, function () { })
+  });
+    
     
 $('li.about').click(function () {
     $('body,html').animate({

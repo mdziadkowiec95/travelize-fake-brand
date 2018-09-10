@@ -362,9 +362,9 @@ nav.mobile .nav-item a:active {
     border: 3px solid #eee;
     border-radius: 50%;
     font-size: 200%;
-    font-weight: 200;
+    font-weight: 100;
     text-align: center;
-    text-shadow: 0 20px 0 #eee;
+    text-shadow: 0 20px 0 #eee, 0 -20px 0 #eee;
     overflow: hidden;
     transition: 0.5s ease;
 }
@@ -377,7 +377,7 @@ nav.mobile .nav-item a:active {
     cursor: pointer;
 }
 
-.fa-arrow-down {
+.fa-chevron-down {
     animation: arrowMove 1.3s infinite linear;
 }
 
@@ -540,18 +540,39 @@ nav.mobile .nav-item a:active {
 
 /* --------------------------------------- */
 
+.plans-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.plans-image {
+
+    flex: 1 200px;
+}
+
+.plans-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.plans-panel {
+    flex: 1 200px;
+}
+
 .plans {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    
     padding-top: 3em;
     max-width: 100%;
     
 }
 
 .plans-box {
-    flex: 1;
-    border: 1px solid var(--main-blue);
+    flex: 2 200px;
+    margin: .3em;
+    border: 2px solid var(--main-blue);
+    color: var(--main-blue);
     padding: .6em 1em;
     z-index: 10;
     text-align: center;
@@ -559,6 +580,11 @@ nav.mobile .nav-item a:active {
     transition: .4s;
 }
 
+.plans-box i {
+    font-size: 200%;
+}
+
+/*
 .plans-box:first-child {
     border-radius: 10px 0 0 0;
 }
@@ -566,6 +592,7 @@ nav.mobile .nav-item a:active {
 .plans-box:last-child {
     border-radius: 0 10px 0 0;
 }
+*/
 
 .plans-box:hover:not(.active) {
     background-color: var(--main-blue);
@@ -573,10 +600,12 @@ nav.mobile .nav-item a:active {
     opacity: 0.8;
 }
 
+/*
 .plans-box:nth-child(2) {
     border-right: none;
     border-left: none;
 }
+*/
 
 
 .plans-box.active {
@@ -987,7 +1016,7 @@ input:last-child {
 
 /* ---- GO TOP button ----- */
 
-}
+
 
 
 

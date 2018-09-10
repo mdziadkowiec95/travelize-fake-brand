@@ -1,19 +1,21 @@
-/* section PLANS part */
+/* section PLANS scritp START */
 
 const plansParent = document.querySelector('.plans');
 const buttons = document.querySelectorAll('.plans-box');
 const contentDivs = document.querySelectorAll('.plans-content');
 
 plansParent.addEventListener('click', function(e) {
-    if (e.target.className === 'plans-box') {
+    if (e.target.className === 'plans-box' ) {
         const clickedBox = e.target;
-        const clickedBoxText = clickedBox.textContent;
+        const clickedBoxData = clickedBox.dataset.plan;
+        let displayedImg = document.querySelector('.plans-image img');
         
         for (let i = 0; i < contentDivs.length; i++) {
             let currentDiv = contentDivs[i];
             
-            if (currentDiv.dataset.plan === clickedBoxText) {
+            if (currentDiv.dataset.plan === clickedBoxData) {
                 currentDiv.classList.add('active');
+                displayedImg.src = 'img/foto' + (i + 1) + '.jpg';
             } else {
                 currentDiv.classList.remove('active');
             }
@@ -23,6 +25,8 @@ plansParent.addEventListener('click', function(e) {
 
     } 
 });
+
+/* section PLANS scritp END */
 
 
 

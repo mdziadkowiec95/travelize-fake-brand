@@ -1,5 +1,15 @@
 /* main blue =  #1059c1  */
 
+
+/* just to remove free CBA.PL advert */
+
+div#top_10 {
+    display: none !important;
+}
+
+/* --------------------------------- */
+
+
 /* --------------------------------------- */
 
 /* BASIC SETUP */
@@ -88,7 +98,7 @@ h4 {
 /* --------------------------------------- */
 
 .container {
-    width: 85%;
+    max-width: 90%;
     margin: 40px auto;
     padding-top: 80px;
 }
@@ -205,10 +215,10 @@ a:hover {
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
     border-radius: 2px;
-    -webkit-transition: all 100ms ease-in-out;
-    -moz-transition: all 100ms ease-in-out;
-    -o-transition: all 100ms ease-in-out;
-    transition: all 100ms ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
     text-indent: 100%;
 }
 
@@ -253,10 +263,10 @@ nav.desktop {
 }
 
 nav.mobile {
-    display: none;
+    display: block;
     position: fixed;
     width: 250px;
-    left: 0;
+    left: -250px;
     top: 0;
     bottom: 0;
     list-style: none;
@@ -265,6 +275,7 @@ nav.mobile {
     background-color: var(--nav-bg-color);
     z-index: 10;
     box-shadow: 2px 3px 7px gray;
+    transition: all .3s;
 }
 
 nav.mobile .main-nav {
@@ -306,7 +317,9 @@ nav.mobile .nav-item a:active {
     margin: .5em auto;
 }
 
-
+nav.mobile.nav-active {
+    left: 0;
+}
 
 
 
@@ -320,7 +333,6 @@ nav.mobile .nav-item a:active {
     background-image: linear-gradient(rgba(15, 29, 49, 0.8), rgba(15, 29, 49, 0.8)), url('../img/background3.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .header-box {
@@ -478,6 +490,19 @@ nav.mobile .nav-item a:active {
 
 /* --------------------------------------- */
 
+/* SECTION Gallery */
+
+/* --------------------------------------- */
+
+.section-gallery {
+    display: none;
+}
+
+/* -----------------------------------------*/
+
+
+/* --------------------------------------- */
+
 /* SECTION OPINIONS */
 
 /* --------------------------------------- */
@@ -533,35 +558,51 @@ nav.mobile .nav-item a:active {
     text-align: justify;
 }
 
+.nav-margin {
+    transition: .3s;
+    margin-left: 250px;
+    
+}
 
 /* --------------------------------------- */
+/* Section Google Map */
+/* --------------------------------------- */
 
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+
+
+
+/* --------------------------------------- */
 /* Section OPTIONS */
-
 /* --------------------------------------- */
 
-.plans-wrapper {
+
+.benefits-wrapper {
     display: flex;
     flex-direction: row;
 }
 
-.plans-image {
+.benefits-image {
     max-width: 100%;
 }
 
 
 
-.plans-image {
+.benefits-image {
     width: 50%;
     height: 50%;
     border-radius: 0 0 15px 0;
 }
 
-.plans-panel {
+.benefits-panel {
     flex: 1 200px;
 }
 
-.plans {
+.benefits-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -570,57 +611,58 @@ nav.mobile .nav-item a:active {
     
 }
 
-.plans-box {
+.benefits-btn {
     flex: 1;
     margin: .3em;
     border: 2px solid var(--main-blue);
     color: var(--main-blue);
+    outline: none;
     padding: .6em 1em;
-    z-index: 10;
     text-align: center;
     box-shadow: -1px 3px 4px #d3d7dd;
     transition: .4s;
 }
 
-.plans-box i {
+.benefits-btn i {
     font-size: 200%;
+    pointer-events: none;
 }
 
 /*
-.plans-box:first-child {
+.benefits-btn:first-child {
     border-radius: 10px 0 0 0;
 }
 
-.plans-box:last-child {
+.benefits-btn:last-child {
     border-radius: 0 10px 0 0;
 }
 */
 
-.plans-box:hover:not(.active) {
+.benefits-btn:hover:not(.active) {
     background-color: var(--main-blue);
     color: white;
 }
 
 /*
-.plans-box:nth-child(2) {
+.benefits-btn:nth-child(2) {
     border-right: none;
     border-left: none;
 }
 */
 
 
-.plans-box.active {
+.benefits-btn.active {
     background-color: var(--main-blue);
     color: white;
     box-shadow: 0px 2px 4px #8690a0;
     animation: buttonScale .4s;
 }
 
-.plans-content:not(.active) {
+.benefits-content:not(.active) {
     display: none;
 }
 
-.plans-content.active {
+.benefits-content.active {
     display: flex;
     background-color: #eee;
     border-radius: 0 0 15px 15px;
@@ -645,29 +687,80 @@ nav.mobile .nav-item a:active {
 
 /* --------------------------------------- */
 
-.section-forms {
-    margin: 0 20%;
+.section-contact {
+    padding: 80px 0 30px 0;;
 }
 
-.contact-forms {
-    display: grid;
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #eee;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+}
 
-    margin-top: 30px;
-
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 8px;
-    grid-template-rows: auto;
-
+.contact-form label {
+    margin-bottom: .3em;
+    
 }
 
 .form-control {
-    border-radius: 10px;
+    margin-bottom: .7em;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #ccc;
+    padding: .6em;
+    transition: all .22s;
 }
 
-input:last-child {
-    grid-area: 6 / 2 / 7 / 3;
-    width: 100px;
 
+.form-control:focus:not(select) {
+    box-shadow: 0 0 5px var(--main-blue);
+    border: 2px solid var(--main-blue);
+    transform: scale(1.01);
+}
+
+.submit-btn {
+    outline: none;
+    padding: .7em .3em;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--main-blue);
+    background-color: var(--main-blue);
+    color: #fff;
+    transition: .22s;
+}
+
+.submit-btn:hover {
+    background-color: var(--main-blue-lighter);
+    transform: scale(1.01);
+}
+
+.form-messages {
+    padding-top: .4em;
+}
+
+.form-messages.success {
+    color: green;
+}
+
+.form-messages.error {
+    color: red;
+}
+
+/* --------------------------------------- */
+/* --------------- FOOTER ---------------- */
+/* --------------------------------------- */
+
+footer {
+    background: linear-gradient(rgba(31, 73, 132, 0.3), rgba(31, 73, 132, 0.3)), url(../img/footer_background.png);
+    min-height: 300px;
+    -webkit-clip-path: polygon(50% 22%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
 }
 
 /* --------------------------------------- */
@@ -905,6 +998,10 @@ input:last-child {
         grid-gap: 30px;
     }
 
+    
+    .section-gallery {
+        display: block;
+    }
 
     .gallery-boxes {
         display: grid;

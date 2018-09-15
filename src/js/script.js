@@ -1,30 +1,35 @@
 /* section PLANS scritp START */
 
-const plansParent = document.querySelector('.plans');
-const buttons = document.querySelectorAll('.plans-box');
-const contentDivs = document.querySelectorAll('.plans-content');
+const benefitsParent = document.querySelector('.benefits-buttons');
+const benefitsButtons = document.querySelectorAll('.benefits-btn');
+const benefitsContentDivs = document.querySelectorAll('.benefits-content');
 
-plansParent.addEventListener('click', function(e) {
-    if (e.target.className === 'plans-box' ) {
-        const clickedBox = e.target;
-        const clickedBoxData = clickedBox.dataset.plan;
-        let displayedImg = document.querySelector('.plans-image img');
+
+function changeBenefit(e) {
+    const clickedBtn = e.target;
+    const clickedBtnData = clickedBtn.dataset.target;
+    
+    
+    for (let i = 0; i < benefitsButtons.length; i++) {
         
-        for (let i = 0; i < contentDivs.length; i++) {
-            let currentDiv = contentDivs[i];
-            
-            if (currentDiv.dataset.plan === clickedBoxData) {
-                currentDiv.classList.add('active');
-
-            } else {
-                currentDiv.classList.remove('active');
-            }
-            buttons[i].classList.remove('active');  
+        if (benefitsButtons[i].className === "benefits-btn active") {
+            benefitsButtons[i].classList.remove('active');
+            benefitsContentDivs[i].classList.remove('active');
         } 
-        clickedBox.classList.add('active');
+        
+        if (clickedBtnData === benefitsContentDivs[i].dataset.target) {
+            benefitsContentDivs[i].classList.add('active');
+        } else {
+            benefitsContentDivs[i].classList.remove('active');
+        }        
+    }
+    clickedBtn.classList.add('active');  
+};
 
-    } 
-});
+benefitsButtons.forEach( (button) => button.addEventListener('click', changeBenefit));
+
+
+
 
 /* section PLANS scritp END */
 
@@ -38,7 +43,7 @@ var $about = $(".section-about");
 
 $(document).ready(function () {
     
-    // ARROW - slide down
+    // ARROW - slide down behavior below...
     
     $('#arrow-down').click(function () {
     $('body,html').animate({
@@ -47,6 +52,8 @@ $(document).ready(function () {
   });
     
     
+// Menu item animation after click below...    
+    
 $('li.about').click(function () {
     $('body,html').animate({
       scrollTop: $about.offset().top
@@ -54,36 +61,55 @@ $('li.about').click(function () {
   });
 
 
-$('.best-offer').on(
-    "click",
-    function () {
-      if ($('.show', this).text() === "+") {
-        console.log("+");
-        $('.photo-box', this).addClass('js-open')
-        $('div.js-open + article', this).slideDown();
-        $('.show', this).text("-");
-      } else if ($('.show', this).text() === "-") {
-        console.log("-");
-        $('.photo-box', this).removeClass('js-open')
-        $('article', this).slideUp();
-        $('.show', this).text("+");
-      }
-
-    });
+//$('.best-offer').on(
+//    "click",
+//    function () {
+//      if ($('.show', this).text() === "+") {
+//        console.log("+");
+//        $('.photo-box', this).addClass('js-open')
+//        $('div.js-open + article', this).slideDown();
+//        $('.show', this).text("-");
+//      } else if ($('.show', this).text() === "-") {
+//        console.log("-");
+//        $('.photo-box', this).removeClass('js-open')
+//        $('article', this).slideUp();
+//        $('.show', this).text("+");
+//      }
+//
+//    });
     
-
-
+    
+        // Navigation on mobile behavior below...
+            
             $('.nav-toggle').click(function(){
              $(this).toggleClass('open');
-             $('nav.mobile').fadeToggle(100);
+             $('nav.mobile').toggleClass('nav-active');
                 $('nav.mobile').click(function() {
-                   $('nav.mobile').hide(); 
+                   $('nav.mobile').removeClass('nav-active');
+                    $('.nav-toggle').removeClass('open');
                 });
             
             return false;
         });
+    
+    // Google Maps settings below
         
+    const map = new GMaps({
+          div: '#map',
+          lat: 50.0301489,
+          lng: 19.918081,
+          zoom: 12
+        });
    
+    map.addMarker({
+      lat: 50.0301489,
+      lng: 19.918081,
+      title: 'Our main office',
+      infoWindow: {
+      content: '<p>Our main office</p>'
+    }
+    });
+        
     // only mobile
     
 //    $('.nav-item a').on('click', function(e) {
@@ -106,6 +132,10 @@ $('.best-offer').on(
 //        $('.newsletter-popup').fadeOut();
 //    });
     });
+
+
+
+    
     
 
 

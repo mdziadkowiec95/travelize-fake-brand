@@ -14,6 +14,18 @@ const concat = require( 'gulp-concat' );
 //        .pipe(gulp.dest('dist'));
 //}); 
 
+gulp.task('copy-fonts', function() {
+    gulp.src('./src/fonts/**/*')
+    // Perform minification tasks, etc here
+    .pipe(gulp.dest('./dist/fonts'));
+});
+
+gulp.task('copy-index', function() {
+    gulp.src('./src/index.html')
+    // Perform minification tasks, etc here
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('concat', function() {
    return gulp.src('./src/js/*.js')
         .pipe(concat('scripts.js'))

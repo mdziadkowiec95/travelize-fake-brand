@@ -157,28 +157,28 @@
     <section class="section-gallery">
         <div class="gallery-boxes">
             <div class="gallery-box">
-                <img src="img/athens-min.jpg" alt="Athens">
+                <img src="img/foto1.jpg" alt="Athens">
             </div>
             <div class="gallery-box">
-                <img src="img/london-min.jpg" alt="London">
+                <img src="img/foto2.jpg" alt="London">
             </div>
             <div class="gallery-box">
-                <img src="img/athens-min.jpg" alt="Athens">
+                <img src="img/foto3.jpg" alt="Athens">
             </div>
             <div class="gallery-box">
-                <img src="img/london-min.jpg" alt="London">
+                <img src="img/foto4.jpg" alt="London">
             </div>
             <div class="gallery-box">
-                <img src="img/athens-min.jpg" alt="Athens">
+                <img src="img/foto5.jpg" alt="Athens">
             </div>
             <div class="gallery-box">
-                <img src="img/london-min.jpg" alt="London">
+                <img src="img/foto6.jpg" alt="London">
             </div>
             <div class="gallery-box">
-                <img src="img/athens-min.jpg" alt="Athens">
+                <img src="img/foto7.jpg" alt="Athens">
             </div>
             <div class="gallery-box">
-                <img src="img/london-min.jpg" alt="London">
+                <img src="img/foto8.jpg" alt="London">
             </div>
         </div>
     </section>

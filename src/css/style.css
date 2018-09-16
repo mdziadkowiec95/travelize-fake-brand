@@ -266,7 +266,7 @@ nav.mobile {
     display: block;
     position: fixed;
     width: 250px;
-    left: -250px;
+    left: -255px;
     top: 0;
     bottom: 0;
     list-style: none;
@@ -330,9 +330,33 @@ nav.mobile.nav-active {
 .header {
     position: relative;
     height: 100vh;
+/*    background-image: linear-gradient(rgba(15, 29, 49, 0.8), rgba(15, 29, 49, 0.8)), url('../img/background3.jpg');*/
+    
+}
+
+.header:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom:0;
+    height: 100vh;
+    width: 100vw;
     background-image: linear-gradient(rgba(15, 29, 49, 0.8), rgba(15, 29, 49, 0.8)), url('../img/background3.jpg');
     background-size: cover;
     background-position: center;
+    z-index: -1;
+    animation: heroFadeIn 2s cubic-bezier(0,.62,0,.99) forwards;
+}
+
+@keyframes heroFadeIn {
+    0% { 
+        opacity: 0;
+/*        transform: scale(1.2);*/
+    }
+    100% { opacity: 1;
+/*        transform: scale(1);*/
+    }
 }
 
 .header-box {
@@ -340,15 +364,16 @@ nav.mobile.nav-active {
     flex-direction: column;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 45%;
     transform: translate(-50%, -50%);
     max-width: 1140px;
-
 }
 
+/*
 .header-text-box {
-    animation: headerAnimation 1.5s;
+    animation: heroFadeIn 2s ease-out forwards;
 }
+*/
 
 .header-text {
     font-size: 100%;
@@ -367,18 +392,18 @@ nav.mobile.nav-active {
     position: absolute;
     width: 64px;
     height: 64px;
-    bottom: 9%;
+    bottom: 16%;
     left: 50%;
     transform: translateX(-50%);
     color: #eee;
     border: 3px solid #eee;
     border-radius: 50%;
-    font-size: 200%;
+    font-size: 300%;
     font-weight: 100;
     text-align: center;
     text-shadow: 0 20px 0 #eee, 0 -20px 0 #eee;
     overflow: hidden;
-    transition: 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 #arrow-down:hover {
@@ -386,10 +411,11 @@ nav.mobile.nav-active {
     color: #eee;
     border-color: #6d6b6b;
     opacity: 0.7;
+    transform: scale(1.1) translateX(-47%);
     cursor: pointer;
 }
 
-.fa-chevron-down {
+.fa-angle-down {
     animation: arrowMove 1.3s infinite linear;
 }
 
@@ -511,7 +537,6 @@ nav.mobile.nav-active {
     background-image: linear-gradient(rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)), url(../img/background2.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     padding-bottom: 40px;
 
 }
@@ -891,6 +916,7 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
     .header-box {
         display: block;
         left: 40%;
+        top: 50%;
 
     }
 
@@ -900,10 +926,12 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
 
     }
 
-
-
     .btn {
         display: inline-block;
+    }
+    
+    #arrow-down {
+        bottom: 9%;
     }
 
 
@@ -921,7 +949,10 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
         opacity: 1;
     }
 
-
+    .section-opinions {
+        background-attachment: fixed;
+    }
+    
     .opinion-boxes {
         grid-template-columns: 1fr 1fr;
         grid-gap: 50px;
@@ -943,7 +974,7 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
 }
 
 @media (min-width: 992px) {
-    header {
+    .header:after {
         background-attachment: fixed;
     }
     
@@ -1033,12 +1064,30 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
         max-width: 100%;
         height: auto;
         opacity: 0.7;
-        transform: scale(1.03);
+        transform: scale(1.04);
         transition: all 0.3s;
     }
     .gallery-box img:hover {
         opacity: 1;
-        transform: scale(1.2) rotateX(10deg);
+        transform: scale(1.2);
+    }
+    
+    .gallery-box span {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        background-color: rgba(0, 0, 0, 0.41);
+        padding: .3em;
+        border-radius: 4px;
+        color: #fff;
+        opacity: 0;
+        transition: all .5s;
+    }
+    
+    .gallery-box:hover span,
+    .gallery-box span:hover {
+        opacity: 1;
+        transform: translateY(40px);
     }
 }
 

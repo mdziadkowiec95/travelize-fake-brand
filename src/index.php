@@ -64,7 +64,7 @@
             <a class="btn btn-ghost" href="#">More places...</a>
         </div>
         <div id="arrow-down">
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
         </div>
     </header>
         

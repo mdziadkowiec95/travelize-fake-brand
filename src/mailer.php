@@ -13,7 +13,7 @@
     }
 
     // Set the recipient email address. Update this to YOUR desired email address.
-    $recipient = "hrmdrum@gmail.com";
+    $recipient = "contact@travelize.cba.pl";
 
     // Set the email subject.
     $subject = "New contact from $name";
@@ -24,7 +24,9 @@
     $email_content .= "Message:\n$message\n";
 
     // Build the email headers.
-    $email_headers = "From: $name <$email>";
+    $email_headers = "\nFrom: contact@travelize.cba.pl";
+    $email = "contact@travelize.cba.pl";
+
 
     // Send the email.
     mail($recipient, $subject, $email_content, $email_headers);

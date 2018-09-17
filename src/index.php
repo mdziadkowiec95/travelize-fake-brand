@@ -155,31 +155,47 @@
   
 
     <section class="section-gallery">
+       <h2 class="gallery-heading">Why us</h2>
         <div class="gallery-boxes">
             <div class="gallery-box">
-                <img src="img/foto1.jpg" alt="Athens">
+               <span>
+               <h4>Heading</h5>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+               </span>
+                <img src="img/foto1.jpg" alt="Athens">  
             </div>
             <div class="gallery-box">
+               <span>
+               <h4>Heading</h5>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </span>
                 <img src="img/foto2.jpg" alt="London">
             </div>
             <div class="gallery-box">
+               <span>
+               <h4>Heading</h5>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+               </span>
                 <img src="img/foto3.jpg" alt="Athens">
             </div>
             <div class="gallery-box">
+               <span>
+               <h4>Heading</h5>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+               </span>
                 <img src="img/foto4.jpg" alt="London">
             </div>
+<!--
             <div class="gallery-box">
+                <span>Descripton text</span>
                 <img src="img/foto5.jpg" alt="Athens">
             </div>
             <div class="gallery-box">
+                <span>Descripton text</span>
                 <img src="img/foto6.jpg" alt="London">
             </div>
-            <div class="gallery-box">
-                <img src="img/foto7.jpg" alt="Athens">
-            </div>
-            <div class="gallery-box">
-                <img src="img/foto8.jpg" alt="London">
-            </div>
+-->
+          
         </div>
     </section>
     

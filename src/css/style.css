@@ -170,6 +170,38 @@ a:hover {
     color: var(--main-blue);
 }
 
+.fa-facebook,
+.fa-twitter,
+.fa-google-plus,
+.fa-youtube {
+    font-size: 250%;
+    color: white;
+    transition: all .3s;
+}
+
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-google-plus:hover,
+.fa-youtube:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+
+.fa-facebook:hover {
+    color: #3b5998;
+}
+
+.fa-twitter:hover {
+    color: #1da1f2;
+}
+
+.fa-google-plus:hover {
+    color: #db4437;
+}
+
+.fa-youtube:hover {
+    color: #7c1212;
+}
 
 /* --------------------------------------- */
 
@@ -205,7 +237,7 @@ a:hover {
     cursor: pointer;
     height: 5px;
     width: 40px;
-    background: #fff;
+    background: #aaa;
     position: absolute;
     display: block;
     content: "";
@@ -605,7 +637,28 @@ nav.mobile.nav-active {
 /* Section OPTIONS */
 /* --------------------------------------- */
 
+.last-minute-timer {
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 2em;
+    color: var(--main-blue);
+    animation: timerAnimation 3s linear infinite;
+    
+}
 
+@keyframes timerAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+/*    100% { transform: scale(1); }*/
+}
+
+.last-minute-timer span {
+    background-color: var(--main-blue);
+    color: #fff;
+    border-radius: 100%;
+    padding: .3em;
+    font-weight: 300;
+}
 .benefits-wrapper {
     display: flex;
     flex-direction: row;
@@ -656,28 +709,11 @@ nav.mobile.nav-active {
     pointer-events: none;
 }
 
-/*
-.benefits-btn:first-child {
-    border-radius: 10px 0 0 0;
-}
-
-.benefits-btn:last-child {
-    border-radius: 0 10px 0 0;
-}
-*/
 
 .benefits-btn:hover:not(.active) {
     background-color: var(--main-blue);
     color: white;
 }
-
-/*
-.benefits-btn:nth-child(2) {
-    border-right: none;
-    border-left: none;
-}
-*/
-
 
 .benefits-btn.active {
     background-color: var(--main-blue);
@@ -786,10 +822,57 @@ nav.mobile.nav-active {
 
 footer {
     background: linear-gradient(rgba(31, 73, 132, 0.3), rgba(31, 73, 132, 0.3)), url(../img/footer_background.png);
-    min-height: 300px;
+    padding: 3em 0 2em 0;
     -webkit-clip-path: polygon(50% 22%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
-clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
+    clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
 }
+
+.footer-heading {
+    font-weight: 100;
+}
+
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4em;
+}
+
+.footer-socials {
+    padding-bottom: .8em;
+}
+.footer-socials a {
+    margin: .3em;
+}
+
+.footer-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.footer-contact i {
+    font-size: 200%;
+    color: #095f09;
+}
+
+.footer-contact a {
+    color: #fff;
+    margin-left: .3em;
+    word-spacing: 5px;
+    border-bottom: 1px solid transparent;
+    transition: all .22s;
+}
+
+.footer-contact a:hover {
+    border-bottom: 1px solid #fff;
+    color: #ccc;
+}
+
+
+
 
 /* --------------------------------------- */
 /* --------- NEWSLETTER POPUP ------------ */
@@ -1034,7 +1117,9 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
         margin: .5em auto .5em .5em;
     }
 
-    
+    .about-boxes {
+        grid-gap: 2.5em;
+    }
     
 
     .section-best .container {
@@ -1048,10 +1133,15 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
 
     .gallery-boxes {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, auto);
         background-color: #000;
     }
+    
+    .gallery-heading {
+        padding-bottom: 25px;
+    }
+    
 
     .gallery-box {
         overflow: hidden;
@@ -1063,31 +1153,34 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
     .gallery-box img {
         max-width: 100%;
         height: auto;
-        opacity: 0.7;
         transform: scale(1.04);
         transition: all 0.3s;
-    }
-    .gallery-box img:hover {
-        opacity: 1;
-        transform: scale(1.2);
     }
     
     .gallery-box span {
         position: absolute;
         top: 0;
-        left: 20px;
-        background-color: rgba(0, 0, 0, 0.41);
-        padding: .3em;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.51);
+        padding: 3em;
         border-radius: 4px;
         color: #fff;
-        opacity: 0;
+        text-align: center;
+        opacity: 1;
+        z-index: 10;
         transition: all .5s;
     }
     
-    .gallery-box:hover span,
+    
     .gallery-box span:hover {
-        opacity: 1;
-        transform: translateY(40px);
+        opacity: 0;
+        
+    }
+    
+    .gallery-box span:hover + img {
+        transform: scale(1.15);
     }
 }
 
@@ -1096,6 +1189,7 @@ clip-path: polygon(50% 27%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
     .container {
         max-width: 80%;
         margin: 0 auto;
+        padding: 5em 0;
     }
 
     .about-boxes {

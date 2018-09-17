@@ -1,5 +1,46 @@
 /* section PLANS scritp START */
 
+
+let date = new Date();
+let month = date.getMonth();
+let dayOfMonth = date.getDate();
+let fullYear = date.getFullYear();
+//alert(month);
+
+let daysLeft = 0;
+
+function setLastMinuteTime() {
+     
+     if ((month + 1) % 2 === 0 && (month + 1) !== 2) {
+        daysLeft = 31 - dayOfMonth;
+        return daysLeft;
+    } else if ((month + 1) % 2 === 1) {
+        daysLeft = 30 - dayOfMonth;
+        return daysLeft;
+    } else {
+        
+        if ((fullYear % 4 == 0) && (fullYear % 100 != 0) || (fullYear % 400 == 0)) {
+            daysLeft = 29 - dayOfMonth;
+            return daysLeft;
+        } else {
+            daysLeft = 28 - dayOfMonth;
+            return daysLeft;
+        }
+    }
+ }
+    
+
+function printDaysLeft() {
+    const daysLeft = setLastMinuteTime();
+    document.querySelector('.last-minute-timer span').textContent = daysLeft;
+    
+
+}
+
+printDaysLeft();
+
+
+
 const benefitsParent = document.querySelector('.benefits-buttons');
 const benefitsButtons = document.querySelectorAll('.benefits-btn');
 const benefitsContentDivs = document.querySelectorAll('.benefits-content');

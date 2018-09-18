@@ -1,11 +1,10 @@
 /* section PLANS scritp START */
 
-
 let date = new Date();
 let month = date.getMonth();
 let dayOfMonth = date.getDate();
 let fullYear = date.getFullYear();
-//alert(month);
+
 
 let daysLeft = 0;
 
@@ -33,12 +32,48 @@ function setLastMinuteTime() {
 function printDaysLeft() {
     const daysLeft = setLastMinuteTime();
     document.querySelector('.last-minute-timer span').textContent = daysLeft;
-    
-
 }
 
 printDaysLeft();
 
+
+// -----------------------------
+
+
+// Section Gallery ----> image preview functionality 
+
+const galleryBoxes = document.querySelectorAll('.gallery-box'); // grab a collection of Gallery boxes.
+                 
+    function showImg(e) {
+    
+    const previewBox = document.querySelector('.gallery-preview-box'); // grab the preview div
+    const previewBoxImg = previewBox.firstElementChild;  // grab the img inside the div
+
+   if (e.target.tagName === 'SPAN') {   // check what was clicked and... 
+       
+       let img = e.target.nextElementSibling; // ...go to the img directly
+       previewBoxImg.setAttribute('src', img.getAttribute('src')); // then set SRC to SRC of clicked img
+    
+   } else {
+       let img = e.target.parentNode.nextElementSibling;
+       previewBoxImg.setAttribute('src', img.getAttribute('src'));
+   }
+    previewBox.classList.add('show');  // change display property of PREVIEW BOX by adding .show class
+    
+    previewBox.addEventListener('click', () => {
+        previewBox.classList.remove('show');    // remove .show class 
+    });
+};
+
+galleryBoxes.forEach( (box) => box.addEventListener('click', showImg)); //loop through the gallery and attach event listeners to each gallery item
+
+
+
+
+
+
+
+// BENEFITS section change script below 
 
 
 const benefitsParent = document.querySelector('.benefits-buttons');
@@ -84,6 +119,9 @@ var $about = $(".section-about");
 
 $(document).ready(function () {
     
+    
+    
+    
     // ARROW - slide down behavior below...
     
     $('#arrow-down').click(function () {
@@ -100,6 +138,18 @@ $('li.about').click(function () {
       scrollTop: $about.offset().top
     }, 1000, function () { })
   });
+    
+    
+    
+    
+    // Animations on scroll 
+    
+    $('.js--wp-1').waypoint(function(direction) {
+        $('.js--wp-1').addClass('animated fadeIn');
+    }, 
+    {
+        offset: '70%'
+    });
 
 
 //$('.best-offer').on(
@@ -162,17 +212,21 @@ $('li.about').click(function () {
     
     // POPUP show
     
-
 //    setTimeout(function() {
 //        $('.newsletter-popup').fadeIn().css('display', 'flex');
-//    }, 2000);
+//    }, 1000);
 //    
 //    // popup listener 
-//    $('.popup-close, .btn-submit').on('click', function(e) {
-//       e.preventDefault();
+//    $('.submit-btn, .popup-close').on('click', function(e) {
+//        e.preventDefault();
 //        $('.newsletter-popup').fadeOut();
 //    });
+//    
     });
+
+
+
+
 
 
 

@@ -202,12 +202,16 @@
     
     <section class="section-benefits">
             <div class="container">
-                <h2>Choose your plan!</h2>
+                <h2>Offers of the month!</h2>
+                <p class="last-minute-timer">&#9654; available for <span> a few days only</span> days only! &#9664;</p>
+             
              
            
                 
                <div class="benefits-buttons">
-                    <button class="benefits-btn" data-target="#first-benefit"><i class="fa fa-users" aria-hidden="true"></i></button>
+                    <button class="benefits-btn" data-target="#first-benefit">Tenerife (Spain)
+<!--                    <i class="fa fa-users" aria-hidden="true"></i>-->
+                    </button>
                     <button class="benefits-btn active" data-target="#seccond-benefit"><i class="fa fa-handshake-o" aria-hidden="true"></i></button>
                     <button class="benefits-btn" data-target="#third-benefit"><i class="fa fa-medkit" aria-hidden="true"></i></button>
                     <button class="benefits-btn" data-target="#fourth-benefit"><i class="fa fa-cc-paypal" aria-hidden="true"></i></button>
@@ -270,7 +274,7 @@
 
 
       
-        <section class="section-contact" id="form">
+               <section class="section-contact" id="form">
                 
                 <form name="contact-form" method="post" action="mailer.php" class="contact-form">
                     <div class="contact-form-title">
@@ -316,7 +320,20 @@
             </section>
         
         <footer>
-            <div>Footer</div>
+            <div class="footer-wrapper">
+               <h4 class="footer-heading">Follow us!</h4>
+                <div class="footer-socials">
+                   <a href="#"><i class="fa fa-facebook social-icon" aria-hidden="true"></i></a>
+                   <a href="#"><i class="fa fa-twitter social-icon" aria-hidden="true"></i></a>
+                   <a href="#"><i class="fa fa-google-plus social-icon" aria-hidden="true"></i></a>
+                   <a href="#"><i class="fa fa-youtube social-icon" aria-hidden="true"></i></a>
+                </div>
+                <div class="footer-contact">
+                    <i class="fa fa-phone-square" aria-hidden="true"></i>
+                    <a href="tel:+44-442-425-2412">+44 442 425 2412</p>
+                </div>
+            </div>
+
         </footer>
         
         
@@ -337,7 +354,7 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maps.google.com/maps/api/js"></script>
     <script type="text/javascript" src="js/script.js" async></script>
     <script src="js/gmaps.min.js"></script>

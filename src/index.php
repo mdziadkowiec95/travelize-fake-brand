@@ -73,7 +73,7 @@
         <div class="container">
             <h2>A few words about us!</h2>
             <p class="long-text">We are here to help you with making an overthought decission. Your comfort and happinnes is the most important for us. </p>
-            <div class="about-boxes">
+            <div class="about-boxes js--wp-1">
                 <div class="about-box">
                     <i class="fab fa-creative-commons-nc icon-big"></i>
                     <h3>Save your money!</h3>
@@ -197,6 +197,11 @@
 -->
           
         </div>
+        
+        <div class="gallery-preview-box">
+            <img src="img/foto1.jpg">
+        </div>
+        
     </section>
     
     
@@ -319,7 +324,7 @@
                   </form>
             </section>
         
-        <footer>
+                <footer>
             <div class="footer-wrapper">
                <h4 class="footer-heading">Follow us!</h4>
                 <div class="footer-socials">
@@ -330,31 +335,32 @@
                 </div>
                 <div class="footer-contact">
                     <i class="fa fa-phone-square" aria-hidden="true"></i>
-                    <a href="tel:+44-442-425-2412">+44 442 425 2412</p>
+                    <a href="tel:+44-442-425-2412">+44 442 425 2412</a>
                 </div>
             </div>
 
         </footer>
         
-        
+<section>
         <div class="newsletter-popup">
             <div class="popup-box">
                 <div class="popup-close">X</div>
                 <div class="popup-content">
-                    <h3></h3>Sign up for our Newsletter<br> to get discount offers!</h3>
-                    <form action="index.html" method="post">
+                    <h3><br>Sign up to get discount offers!</h3>
+                    <form action="#" method="post">
                         <input type="text" id="name" name="user_name" placeholder="Your name">
                         <input type="email" id="mail" name="user_email" placeholder="Your Email">
-                        <button type="submit" class="btn-submit">Sign up!</button>
+                        <button type="submit" class="submit-btn">Sign up!</button>
                     </form>
                 </div>
             </div>
         </div>
-    
+    </section> 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
     <script src="http://maps.google.com/maps/api/js"></script>
     <script type="text/javascript" src="js/script.js" async></script>
     <script src="js/gmaps.min.js"></script>

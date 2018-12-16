@@ -8,12 +8,12 @@
 
     // Check the data.
     if (empty($name) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: http://www.travelize.cba.pl/index.php?success=-1#form");
+        header("Location: http://www.travelize.michaldziadkowiec.pl/index.php?success=-1#form");
         exit;
     }
 
     // Set the recipient email address. Update this to YOUR desired email address.
-    $recipient = "contact@travelize.cba.pl";
+    $recipient = "hrmdrum@michaldziadkowiec.pl";
 
     // Set the email subject.
     $subject = "New contact from $name";
@@ -24,14 +24,13 @@
     $email_content .= "Message:\n$message\n";
 
     // Build the email headers.
-    $email_headers = "\nFrom: contact@travelize.cba.pl";
-    $email = "contact@travelize.cba.pl";
+    $email_headers = "\nFrom: $name <$email>";
 
 
     // Send the email.
     mail($recipient, $subject, $email_content, $email_headers);
     
     // Redirect to the index.html page with success code
-    header("Location: http://www.travelize.cba.pl/index.php?success=1#form");
+    header("Location: http://www.travelize.michaldziadkowiec.pl/index.php?success=1#form");
 
 ?>

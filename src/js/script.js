@@ -1,5 +1,25 @@
-/* ----- Navigation toogling ----- */
+/* ------- GLOBAL functions ---------*/
 
+// debouncing on scroll funcitons
+
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
+
+/* ----- Navigation ----- */
+
+// navigation toggling on mobile
 var navToggler = document.querySelector('.nav-toggle');
 var navbar = document.querySelector('.navbar');
 
@@ -8,7 +28,36 @@ function toggleNav() {
     navbar.classList.toggle('open');
 }
 
+// document.addEventListener('click', function (e) {
+//     console.log(navToggler.classList.contains('open'));
+//     // e.stopPropagation();
+//     if (navbar.classList.contains('open')) {
+//         if (e.target !== navbar && navToggler.classList.contains('open')) {
+//             navToggler.classList.remove('open');
+//             navbar.classList.remove('open');
+//             alert();
+//         }
+//     }
+// });
+
 navToggler.addEventListener('click', toggleNav);
+
+
+
+
+// navigation sticky on desktop
+function stickNavbar() {
+    var headerHeight = document.querySelector('.header').offsetHeight;
+    var scrolledTop = window.scrollY;
+
+    if (scrolledTop >= headerHeight) {
+        navbar.classList.add('js-sticky');
+    } else {
+        navbar.classList.remove('js-sticky');
+    }
+};
+
+window.addEventListener('scroll', debounce(stickNavbar, 15));
 
 
 

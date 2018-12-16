@@ -293,6 +293,7 @@ nav {
 
 .nav-logo {
     display: block;
+    max-width: 140px;
     height: auto;
     -webkit-filter: grayscale(40%);
             filter: grayscale(40%);
@@ -425,7 +426,7 @@ nav {
     background: rgb(240,236,235);
     -webkit-box-shadow: none;
             box-shadow: none;
-    z-index: 99900;
+    z-index: 830;
     width: 80%;
     max-width: 300px;
     -webkit-transition: all .3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
@@ -488,7 +489,7 @@ nav {
 .about-boxes {
     display: -ms-grid;
     display: grid;
-    grid-gap: 18px;
+    grid-gap: 1em;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     padding-top: 40px;
@@ -506,12 +507,18 @@ nav {
         align-content: flex-start;
 }
 
-.about-box i {
+.about-box__icon {
+    font-size: 3em;
     padding: 10px 0;
 }
 
-.about-box p {
+.about-box__paragraph {
+    font-size: 1.1em;
     text-align: justify;
+}
+
+.about-box:hover i {
+    transform: scale(1.1);
 }
 
 /* Animation on scroll */  
@@ -1193,14 +1200,32 @@ footer {
         display: -ms-flexbox;
         display: flex;
         position: static;
+        top: 0;
+        left: 0;
         width: 100%;
         height: auto;
-        background: none;
         max-width: unset;
+        background-color: rgba(40,48,24, 0);
+    }
+    
+    /* sticky navbar on desktop */
+    .navbar.js-sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: unset;
+        background-color: rgb(40,48,24);
+        box-shadow: 0 1px 3px #222;
     }
 
     .nav-logo {
         display: block;
+    }
+
+    .navbar.js-sticky .nav-logo {
+        max-width: 100px;
+        animation: logoSlideDown 0.35s cubic-bezier(0.250, 0.460, 0.450, 0.940);
     }
 
    .main-nav {
@@ -1257,7 +1282,6 @@ footer {
             grid-template-columns: 1fr 1fr;
     }
 
-
     .section-best .container {
         -ms-grid-columns: (1fr)[2];
             grid-template-columns: repeat(2, 1fr);
@@ -1313,11 +1337,15 @@ footer {
 @media (min-width: 1200px) {
 
     .container {
-        max-width: 80%;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 5em 0;
     }
-
+    
+    .header {
+        background-attachment: fixed;
+    }
+    
     .about-boxes {
         -ms-grid-columns: (1fr)[4];
             grid-template-columns: repeat(4, 1fr);
@@ -1349,6 +1377,22 @@ footer {
     }
 
 }
+
+
+/*  REFATOR animations */
+
+@keyframes logoSlideDown {
+    0% { 
+        opacity: 0;
+        transform: translateY(-80px);
+     }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+     }
+}
+
+/* refactor animations END */
 
 
 @-webkit-keyframes buttonScale {

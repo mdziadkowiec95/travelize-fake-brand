@@ -60,6 +60,22 @@ function stickNavbar() {
 window.addEventListener('scroll', debounce(stickNavbar, 15));
 
 
+/* ----- FAQ accordion ---- */
+
+function toggleFAQs(e) {
+    if (e.target.tagName === 'BUTTON') {
+        document.querySelectorAll('.faq__button').forEach(function (btn) {
+            btn.classList.add('collapsed');
+            btn.textContent = '+';
+        });
+        e.target.classList.remove('collapsed');
+        e.target.textContent = '-';
+    }
+}
+
+document.querySelector('.faq').addEventListener('click', toggleFAQs);
+
+
 
 
 

@@ -546,9 +546,13 @@ nav {
 
 .gallery-boxes {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     background-color: #000;
     overflow: hidden;
+}
+
+.gallery-link:not(:first-child) {
+    display: none;
 }
 
 .gallery-link {
@@ -596,7 +600,6 @@ nav {
     -webkit-transform: translate(50%, 50%);
             transform: translate(50%, 50%);
 }
-
 /* -----------------------------------------*/
 
 
@@ -660,12 +663,6 @@ nav {
     text-align: justify;
 }
 
-.nav-margin {
-    -webkit-transition: .3s;
-    transition: .3s;
-    margin-left: 250px;
-    
-}
 
 /* --------------------------------------- */
 /* Section Google Map */
@@ -821,9 +818,7 @@ nav {
 
 
 /* --------------------------------------- */
-
 /* Section CONTACT with forms */
-
 /* --------------------------------------- */
 
 .section-contact {
@@ -908,7 +903,7 @@ nav {
 .submit-btn {
     outline: none;
     padding: .7em .3em;
-    border: 1px solid transparent;
+    border: none;
     -webkit-box-shadow: 0 0 5px rgb(240,236,235);
             box-shadow: 0 0 5px rgb(240,236,235);
     background-color: rgb(170,134,58);
@@ -920,7 +915,7 @@ nav {
 .submit-btn:hover {
     background-color: rgb(255, 255, 255);
     box-shadow: -1px 1px 3px rba(36, 36, 36, 0.4);
-    border: 1px solid rgb(170,134,58);
+    /* border: 1px solid rgb(170,134,58); */
     color: rgb(170,134,58);
     -webkit-transform: scale(1.01);
             transform: scale(1.01);
@@ -936,6 +931,33 @@ nav {
 
 .form-messages.error {
     color: red;
+}
+
+
+/* --------------------------------------- */
+/* Section FAQ  */
+/* --------------------------------------- */
+
+.faq__panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq__button {
+    padding: 0.6em;
+    /* transition: all 0.3s ease; */
+}
+.faq__button + .faq__body {
+    opacity: 1;
+    overflow: hidden;
+    max-height: 400px;
+    transition: all .5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.faq__button.collapsed  + .faq__body{
+    opacity: 1;
+    max-height: 1px;
+    /* visibility: hidden; */
 }
 
 /* --------------------------------------- */
@@ -1161,12 +1183,20 @@ footer {
         margin: 20px 9%;
     }
 
-
-   
     .header-text {
         font-size: 1.3em;
         text-align: left;
     }
+
+    .gallery-boxes {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .gallery-link:nth-child(-n + 4) {
+        display: block;
+    }
+
 }
 
 
@@ -1282,15 +1312,13 @@ footer {
             grid-template-columns: 1fr 1fr;
     }
 
-    .section-best .container {
-        -ms-grid-columns: (1fr)[2];
-            grid-template-columns: repeat(2, 1fr);
-        grid-gap: 30px 10px;
+    .gallery-boxes {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
-    .js-open {
-        -webkit-transform: translateY(-40px) scale(1.03);
-                transform: translateY(-40px) scale(1.03);
-        opacity: 1;
+
+    .gallery-link:nth-child(-n + 8){
+        display: block;
     }
 
     .section-opinions {

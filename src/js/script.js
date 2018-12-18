@@ -1,3 +1,9 @@
+/* ------- GLOBAL variables ---------*/
+var header = document.querySelector('.header'),
+    navToggler = document.querySelector('.nav-toggle'),
+    navbar = document.querySelector('.navbar');
+
+
 /* ------- GLOBAL functions ---------*/
 
 // debouncing on scroll funcitons
@@ -20,8 +26,6 @@ function debounce(func, wait, immediate) {
 /* ----- Navigation ----- */
 
 // navigation toggling on mobile
-var navToggler = document.querySelector('.nav-toggle');
-var navbar = document.querySelector('.navbar');
 
 function toggleNav() {
     navToggler.classList.toggle('open');
@@ -42,12 +46,9 @@ function toggleNav() {
 
 navToggler.addEventListener('click', toggleNav);
 
-
-
-
 // navigation sticky on desktop
 function stickNavbar() {
-    var headerHeight = document.querySelector('.header').offsetHeight;
+    var headerHeight = header.offsetHeight;
     var scrolledTop = window.scrollY;
 
     if (scrolledTop >= headerHeight) {
@@ -58,6 +59,21 @@ function stickNavbar() {
 };
 
 window.addEventListener('scroll', debounce(stickNavbar, 15));
+
+/* ----------------------------------*/
+/* ---- HEADER opacity on scroll ----*/
+/* ----------------------------------*/
+
+function headerFade() {
+    var headerHeight = header.offsetHeight;
+    var scrolledTop = window.scrollY;
+    var opacityPercentage = 1 - scrolledTop / headerHeight;
+
+    header.style.opacity = opacityPercentage;
+};
+
+// window.addEventListener('scroll', debounce(headerFade, 10));
+
 
 
 /* ----- FAQ accordion ---- */

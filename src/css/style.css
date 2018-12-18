@@ -844,6 +844,7 @@ nav {
 /* --------------------------------------- */
 
 .last-minute {
+    display: flex;
     color: rgb(40,48,24);
 }
 
@@ -851,15 +852,20 @@ nav {
     display: flex !important;
     flex-direction: column;
     text-align: center;
-    box-shadow: -1px 1px 6px rgba(40,48,24, 0.4);
+    box-shadow: -1px 1px 3px rgba(40,48,24, 0.4);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 0.3s ease;
+}
+
+.last-minute__item:hover {
+    box-shadow: -3px 3px 10px rgba(40,48,24, 0.4);
+    transform: translateY(-5px);
 }
 
 .last-minute__item:hover .last-minute__body {
     background-color: rgba(40,48,24, 0.8);
-    /* opacity: 0.7; */
 }
 
 .last-minute__item--first {

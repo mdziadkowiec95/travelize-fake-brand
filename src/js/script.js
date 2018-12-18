@@ -95,32 +95,32 @@ window.addEventListener('scroll', debounce(headerFade, 10));
 
 $(document).ready(function () {
 
-    $('.last-minute').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        // autoplay: true,
-        autoplaySpeed: 2000,
-        dots: true,
-        responsive: [
+    // $('.last-minute').slick({
+    //     slidesToShow: 3,
+    //     slidesToScroll: 1,
+    //     // autoplay: true,
+    //     autoplaySpeed: 2000,
+    //     dots: true,
+    //     responsive: [
 
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }]
-        // mobileFirst: true,
-        // focusOnSelect: true,
-        // appendArrows: true,
-    });
+    //         {
+    //             breakpoint: 991,
+    //             settings: {
+    //                 slidesToShow: 2,
+    //                 slidesToScroll: 1
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 575,
+    //             settings: {
+    //                 slidesToShow: 1,
+    //                 slidesToScroll: 1
+    //             }
+    //         }]
+    //     // mobileFirst: true,
+    //     // focusOnSelect: true,
+    //     // appendArrows: true,
+    // });
 
 });
 
@@ -328,21 +328,21 @@ $(document).ready(function () {
 
     // Google Maps settings below
 
-    const map = new GMaps({
-        div: '#map',
-        lat: 50.0301489,
-        lng: 19.918081,
-        zoom: 12
-    });
+    // const map = new GMaps({
+    //     div: '#map',
+    //     lat: 50.0301489,
+    //     lng: 19.918081,
+    //     zoom: 12
+    // });
 
-    map.addMarker({
-        lat: 50.0301489,
-        lng: 19.918081,
-        title: 'Our main office',
-        infoWindow: {
-            content: '<p>Our main office</p>'
-        }
-    });
+    // map.addMarker({
+    //     lat: 50.0301489,
+    //     lng: 19.918081,
+    //     title: 'Our main office',
+    //     infoWindow: {
+    //         content: '<p>Our main office</p>'
+    //     }
+    // });
 
 
     // POPUP show

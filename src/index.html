@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
     <!-- <link href="https://unpkg.com/ionicons@4.2.4/dist/css/ionicons.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="js/lib/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
 
@@ -54,6 +55,7 @@
         <div id="arrow-down">
             <i class="fa fa-angle-down" aria-hidden="true"></i>
         </div>
+        <div class="header-overlay"></div>
     </header>
 
     <!-- ABOUT section start -->
@@ -223,7 +225,7 @@
         <div id="map"></div>
     </section>
 
-    <section class="faq">
+    <!-- <section class="faq">
         <div class="container">
             <div class="faq__panel">
                 <button class="faq__button">-</button>
@@ -264,6 +266,71 @@
             </div>
 
         </div>
+    </section> -->
+    <section class="section-last-minute">
+        <div class="container">
+            <div class="last-minute">
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__heading">Mallorca</h3>
+                    <div class="last-minute__body">
+                        <p class="last-minute__price">890$</p>
+                        <p class="last-minute__about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo dolor
+                            ipsam obcaecati. In debitis odio perferendis, non numquam, sed eveniet fuga, impedit a at qui
+                            suscipit aspernatur quasi. Nesciunt, earum.Ipsum natus quas vel, porro eum, odit maxime quasi
+                            adipisci modi ducimus optio consequuntur? Molestias, consequatur assumenda. Corporis cum repellat,
+                            excepturi quae optio voluptatibus unde non corrupti amet possimus voluptatem.</p>
+                        <a class="last-minute__button btn btn-ghost" href="#">Book offer!</a>
+                    </div>
+                </div>
+
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__heading">Mallorca</h3>
+                    <div class="last-minute__body">
+                        <p class="last-minute__price">890$</p>
+                        <p class="last-minute__about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo dolor
+                            ipsam obcaecati. In debitis odio perferendis, non numquam, sed eveniet fuga, impedit a at qui
+                            suscipit aspernatur quasi. Nesciunt, earum.Ipsum natus quas vel, porro eum, odit maxime quasi
+                            adipisci modi ducimus optio consequuntur? Molestias, consequatur assumenda. Corporis cum repellat,
+                            excepturi quae optio voluptatibus unde non corrupti amet possimus voluptatem.</p>
+                        <a class="last-minute__button btn btn-ghost" href="#">Book offer!</a>
+                    </div>
+                </div>
+
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__heading">Mallorca</h3>
+                    <div class="last-minute__body">
+                        <p class="last-minute__price">890$</p>
+                        <p class="last-minute__about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo dolor
+                            ipsam obcaecati. In debitis odio perferendis, non numquam, sed eveniet fuga, impedit a at qui
+                            suscipit aspernatur quasi. Nesciunt, earum.Ipsum natus quas vel, porro eum, odit maxime quasi
+                            adipisci modi ducimus optio consequuntur? Molestias, consequatur assumenda. Corporis cum repellat,
+                            excepturi quae optio voluptatibus unde non corrupti amet possimus voluptatem.</p>
+                        <a class="last-minute__button btn btn-ghost" href="#">Book offer!</a>
+                    </div>
+                </div>
+
+                <!-- <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__city">Mallorca</h3>
+                    <p class="last-minute__price">890$</p>
+                </div>
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__city">Mallorca</h3>
+                    <p class="last-minute__price">890$</p>
+                </div>
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__city">Mallorca</h3>
+                    <p class="last-minute__price">890$</p>
+                </div>
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__city">Mallorca</h3>
+                    <p class="last-minute__price">890$</p>
+                </div>
+                <div class="last-minute__item last-minute__item--first">
+                    <h3 class="last-minute__city">Mallorca</h3>
+                    <p class="last-minute__price">890$</p>
+                </div> -->
+            </div>
+        </div>
     </section>
 
     <section class="section-contact">
@@ -280,8 +347,8 @@
 
             <textarea name="message" placeholder="Your message..." class="form-control"></textarea>
             <button type="submit" class="submit-btn">Send it!</button>
-            <div class="form-messages success">Thank you. Your message has been sent correctly!</div>
-            <div class="form-messages error">Please fill it correctlty...</div>
+            <!-- <div class="form-messages success">Thank you. Your message has been sent correctly!</div> -->
+            <!-- <div class="form-messages error">Please fill it correctlty...</div> -->
         </form>
         </form>
 
@@ -319,10 +386,10 @@
             </div>
         </div>
     </section>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 
     <script src="js/lib/lightgallery.min.js"></script>
@@ -332,6 +399,9 @@
     <!-- <script src="js/lg-fullscreen.min.js"></script> -->
 
     <script src="http://maps.google.com/maps/api/js"></script>
+    <script type="text/javascript" src="js/lib/slick/slick.min.js" async></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+
     <script type="text/javascript" src="js/script.js" async></script>
     <script src="js/gmaps.min.js"></script>
 

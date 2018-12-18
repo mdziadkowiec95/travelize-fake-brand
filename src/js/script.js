@@ -1,5 +1,6 @@
 /* ------- GLOBAL variables ---------*/
 var header = document.querySelector('.header'),
+    headerOverlay = document.querySelector('.header-overlay'),
     navToggler = document.querySelector('.nav-toggle'),
     navbar = document.querySelector('.navbar');
 
@@ -67,29 +68,61 @@ window.addEventListener('scroll', debounce(stickNavbar, 15));
 function headerFade() {
     var headerHeight = header.offsetHeight;
     var scrolledTop = window.scrollY;
-    var opacityPercentage = 1 - scrolledTop / headerHeight;
+    var opacityPercentage = scrolledTop / headerHeight;
 
-    header.style.opacity = opacityPercentage;
+    headerOverlay.style.backgroundColor = 'rgba(255, 255, 255, ' + opacityPercentage + ')';
 };
 
-// window.addEventListener('scroll', debounce(headerFade, 10));
+window.addEventListener('scroll', debounce(headerFade, 10));
 
 
 
 /* ----- FAQ accordion ---- */
 
-function toggleFAQs(e) {
-    if (e.target.tagName === 'BUTTON') {
-        document.querySelectorAll('.faq__button').forEach(function (btn) {
-            btn.classList.add('collapsed');
-            btn.textContent = '+';
-        });
-        e.target.classList.remove('collapsed');
-        e.target.textContent = '-';
-    }
-}
+// function toggleFAQs(e) {
+//     if (e.target.tagName === 'BUTTON') {
+//         document.querySelectorAll('.faq__button').forEach(function (btn) {
+//             btn.classList.add('collapsed');
+//             btn.textContent = '+';
+//         });
+//         e.target.classList.remove('collapsed');
+//         e.target.textContent = '-';
+//     }
+// }
 
-document.querySelector('.faq').addEventListener('click', toggleFAQs);
+// document.querySelector('.faq').addEventListener('click', toggleFAQs);
+
+
+$(document).ready(function () {
+
+    $('.last-minute').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        responsive: [
+
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }]
+        // mobileFirst: true,
+        // focusOnSelect: true,
+        // appendArrows: true,
+    });
+
+});
 
 
 

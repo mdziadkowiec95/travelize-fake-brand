@@ -100,21 +100,21 @@ lightGallery(document.getElementById('lightgallery'));
 
 // Google Maps settings below
 
-const map = new GMaps({
-    div: '#map',
-    lat: 50.0301489,
-    lng: 19.918081,
-    zoom: 12
-});
+// const map = new GMaps({
+//     div: '#map',
+//     lat: 50.0301489,
+//     lng: 19.918081,
+//     zoom: 12
+// });
 
-map.addMarker({
-    lat: 50.0301489,
-    lng: 19.918081,
-    title: 'Our main office',
-    infoWindow: {
-        content: '<p>Our main office</p>'
-    }
-});
+// map.addMarker({
+//     lat: 50.0301489,
+//     lng: 19.918081,
+//     title: 'Our main office',
+//     infoWindow: {
+//         content: '<p>Our main office</p>'
+//     }
+// });
 
 
 $(document).ready(function () {

@@ -221,10 +221,6 @@
         </div>
     </section>
 
-    <section class="section-map">
-        <div id="map"></div>
-    </section>
-
     <!-- <section class="faq">
         <div class="container">
             <div class="faq__panel">
@@ -274,11 +270,13 @@
                     <h3 class="last-minute__heading">Mallorca</h3>
                     <div class="last-minute__body">
                         <p class="last-minute__price">890$</p>
-                        <p class="last-minute__about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo dolor
-                            ipsam obcaecati. In debitis odio perferendis, non numquam, sed eveniet fuga, impedit a at qui
-                            suscipit aspernatur quasi. Nesciunt, earum.Ipsum natus quas vel, porro eum, odit maxime quasi
-                            adipisci modi ducimus optio consequuntur? Molestias, consequatur assumenda. Corporis cum repellat,
-                            excepturi quae optio voluptatibus unde non corrupti amet possimus voluptatem.</p>
+                        <div class="last-minute__about">
+                            <ul class="last-minute__list">
+                                <li class="last-minute__list-item">Reason</li>
+                                <li class="last-minute__list-item">Reason</li>
+                                <li class="last-minute__list-item">Reason</li>
+                            </ul>
+                        </div>
                         <a class="last-minute__button btn btn-ghost" href="#">Book offer!</a>
                     </div>
                 </div>
@@ -287,11 +285,13 @@
                     <h3 class="last-minute__heading">Mallorca</h3>
                     <div class="last-minute__body">
                         <p class="last-minute__price">890$</p>
-                        <p class="last-minute__about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo dolor
-                            ipsam obcaecati. In debitis odio perferendis, non numquam, sed eveniet fuga, impedit a at qui
-                            suscipit aspernatur quasi. Nesciunt, earum.Ipsum natus quas vel, porro eum, odit maxime quasi
-                            adipisci modi ducimus optio consequuntur? Molestias, consequatur assumenda. Corporis cum repellat,
-                            excepturi quae optio voluptatibus unde non corrupti amet possimus voluptatem.</p>
+                        <div class="last-minute__about">
+                            <ul class="last-minute__list">
+                                <li class="last-minute__list-item">Reason</li>
+                                <li class="last-minute__list-item">Reason</li>
+                                <li class="last-minute__list-item">Reason</li>
+                            </ul>
+                        </div>
                         <a class="last-minute__button btn btn-ghost" href="#">Book offer!</a>
                     </div>
                 </div>
@@ -300,57 +300,48 @@
                     <h3 class="last-minute__heading">Mallorca</h3>
                     <div class="last-minute__body">
                         <p class="last-minute__price">890$</p>
-                        <p class="last-minute__about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo dolor
-                            ipsam obcaecati. In debitis odio perferendis, non numquam, sed eveniet fuga, impedit a at qui
-                            suscipit aspernatur quasi. Nesciunt, earum.Ipsum natus quas vel, porro eum, odit maxime quasi
-                            adipisci modi ducimus optio consequuntur? Molestias, consequatur assumenda. Corporis cum repellat,
-                            excepturi quae optio voluptatibus unde non corrupti amet possimus voluptatem.</p>
+                        <div class="last-minute__about">
+                            <ul class="last-minute__list">
+                                <li class="last-minute__list-item">Reason</li>
+                                <li class="last-minute__list-item">Reason</li>
+                                <li class="last-minute__list-item">Reason</li>
+                            </ul>
+                        </div>
                         <a class="last-minute__button btn btn-ghost" href="#">Book offer!</a>
                     </div>
                 </div>
-
-                <!-- <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__city">Mallorca</h3>
-                    <p class="last-minute__price">890$</p>
-                </div>
-                <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__city">Mallorca</h3>
-                    <p class="last-minute__price">890$</p>
-                </div>
-                <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__city">Mallorca</h3>
-                    <p class="last-minute__price">890$</p>
-                </div>
-                <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__city">Mallorca</h3>
-                    <p class="last-minute__price">890$</p>
-                </div>
-                <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__city">Mallorca</h3>
-                    <p class="last-minute__price">890$</p>
-                </div> -->
             </div>
         </div>
     </section>
 
     <section class="section-contact">
+        <div class="container">
+            <div class="contact-wrapper">
 
-        <form name="contact-form" method="post" action="mailer.php" class="contact-form">
-            <div class="contact-form-title">
-                <h2>Contact us!</h2>
+
+                <form name="contact-form" method="post" action="mailer.php" class="contact-form">
+                    <div class="contact-form-title">
+                        <h2>Contact us!</h2>
+                    </div>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Your name..." required>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Your email..." required>
+                    <input class="form-control" type="number" name="phone" id="phone" placeholder="Phone number..." required>
+
+
+                    <div>
+                        <label>Do you want sign up for newsletter?</label>
+                        <input type="checkbox" name="newsletter" id="newsletter" class="form-control" checked>
+                    </div>
+
+                    <textarea name="message" placeholder="Your message..." class="form-control form-control--message" rows="5"></textarea>
+                    <button type="submit" class="submit-btn">Send it!</button>
+                    <!-- <div class="form-messages success">Thank you. Your message has been sent correctly!</div> -->
+                    <!-- <div class="form-messages error">Please fill it correctlty...</div> -->
+                </form>
+
+                <div id="map"></div>
             </div>
-            <input class="form-control" type="text" name="name" id="name" placeholder="Your name..." required>
-            <input class="form-control" type="email" name="email" id="email" placeholder="Your email..." required>
-
-            <label>Newsletter?</label>
-            <div><input type="checkbox" name="newsletter" id="newsletter" class="form-control" checked></div>
-
-            <textarea name="message" placeholder="Your message..." class="form-control"></textarea>
-            <button type="submit" class="submit-btn">Send it!</button>
-            <!-- <div class="form-messages success">Thank you. Your message has been sent correctly!</div> -->
-            <!-- <div class="form-messages error">Please fill it correctlty...</div> -->
-        </form>
-        </form>
+        </div>
 
     </section>
 

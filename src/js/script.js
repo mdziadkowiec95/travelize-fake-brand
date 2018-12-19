@@ -73,7 +73,7 @@ function headerFade() {
     headerOverlay.style.backgroundColor = 'rgba(255, 255, 255, ' + opacityPercentage + ')';
 };
 
-window.addEventListener('scroll', debounce(headerFade, 10));
+window.addEventListener('scroll', headerFade);
 
 
 
@@ -93,7 +93,42 @@ window.addEventListener('scroll', debounce(headerFade, 10));
 // document.querySelector('.faq').addEventListener('click', toggleFAQs);
 
 
+/* ----- LightGallery JS plugin init ---- */
+
+lightGallery(document.getElementById('lightgallery'));
+
+
+// Google Maps settings below
+
+const map = new GMaps({
+    div: '#map',
+    lat: 50.0301489,
+    lng: 19.918081,
+    zoom: 12
+});
+
+map.addMarker({
+    lat: 50.0301489,
+    lng: 19.918081,
+    title: 'Our main office',
+    infoWindow: {
+        content: '<p>Our main office</p>'
+    }
+});
+
+
 $(document).ready(function () {
+
+    // .last-minute sliding on mobile
+    $('.last-minute__heading').on('click', function (e) {
+        e.preventDefault();
+
+        // check if items are in column layout
+        if ($('.last-minute').css('flex-direction') === 'column') {
+            $(this).next().children('.last-minute__about').slideToggle();
+        }
+
+    });
 
     // $('.last-minute').slick({
     //     slidesToShow: 3,
@@ -326,23 +361,7 @@ $(document).ready(function () {
     //     return false;
     // });
 
-    // Google Maps settings below
 
-    // const map = new GMaps({
-    //     div: '#map',
-    //     lat: 50.0301489,
-    //     lng: 19.918081,
-    //     zoom: 12
-    // });
-
-    // map.addMarker({
-    //     lat: 50.0301489,
-    //     lng: 19.918081,
-    //     title: 'Our main office',
-    //     infoWindow: {
-    //         content: '<p>Our main office</p>'
-    //     }
-    // });
 
 
     // POPUP show
@@ -362,10 +381,7 @@ $(document).ready(function () {
 
 
 
-// lightgallery PLUGIN
 
-
-lightGallery(document.getElementById('lightgallery'));
 
 
 

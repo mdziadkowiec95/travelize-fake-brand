@@ -24,6 +24,35 @@ function debounce(func, wait, immediate) {
     };
 };
 
+
+
+
+
+// var sliderImages = document.querySelectorAll('.slide-in');
+
+
+// function checkSlide() {
+//     console.log('ok');
+//     sliderImages.forEach(function (sliderImage) {
+//         // half way through the image
+//         var slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+//         // bottom of the image
+//         var imageBottom = sliderImage.offsetTop + sliderImage.height;
+//         var isHalfShown = slideInAt > sliderImage.offsetTop;
+//         var isNotScrolledPast = window.scrollY < imageBottom;
+//         console.log(imageBottom);
+//         console.log(isHalfShown);
+//         console.log(isNotScrolledPast);
+//         if (isHalfShown && isNotScrolledPast) {
+//             sliderImage.classList.add('active');
+//         } else {
+//             sliderImage.classList.remove('active');
+//         }
+//     });
+// }
+
+// window.addEventListener('scroll', debounce(checkSlide));
+
 /* ----- Navigation ----- */
 
 // navigation toggling on mobile
@@ -130,34 +159,12 @@ $(document).ready(function () {
 
     });
 
-    // $('.last-minute').slick({
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1,
-    //     // autoplay: true,
-    //     autoplaySpeed: 2000,
-    //     dots: true,
-    //     responsive: [
-
-    //         {
-    //             breakpoint: 991,
-    //             settings: {
-    //                 slidesToShow: 2,
-    //                 slidesToScroll: 1
-    //             }
-    //         },
-    //         {
-    //             breakpoint: 575,
-    //             settings: {
-    //                 slidesToShow: 1,
-    //                 slidesToScroll: 1
-    //             }
-    //         }]
-    //     // mobileFirst: true,
-    //     // focusOnSelect: true,
-    //     // appendArrows: true,
-    // });
-
 });
+
+
+/* ---------- add classes on scroll ------ */
+
+
 
 
 
@@ -317,6 +324,29 @@ $(document).ready(function () {
         }, 1000, function () { })
     });
 
+    $('a[data-scroll="last-minute"').click(function () {
+        $('body,html').animate({
+            scrollTop: $('.section-last-minute').offset().top
+        }, 1000, function () { })
+    });
+
+    $('a[data-scroll="about"').click(function () {
+        $('body,html').animate({
+            scrollTop: $('.section-about').offset().top
+        }, 1000, function () { })
+    });
+
+    $('a[data-scroll="gallery"').click(function () {
+        $('body,html').animate({
+            scrollTop: $('.section-gallery').offset().top
+        }, 1000, function () { })
+    });
+
+    $('a[data-scroll="contact"').click(function () {
+        $('body,html').animate({
+            scrollTop: $('.section-contact').offset().top
+        }, 1000, function () { })
+    });
 
 
 

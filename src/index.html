@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/lightgallery.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="js/lib/slick/slick.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../dist/css/style.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
 
     <!-- Favicon part below -->
@@ -37,10 +38,10 @@
             <ul class="main-nav">
                 <!-- <img src="img/earth.png" class="nav-logo" id="nav-logo"> -->
                 <img src="img/travelize-logo.png" class="nav-logo" id="nav-logo">
-                <li class="nav-item"><a href="#">About</a></li>
-                <li class="nav-item"><a href="#">Gallery</a></li>
+                <li class="nav-item"><a href="#" data-scroll="about">About</a></li>
+                <li class="nav-item"><a href="#" data-scroll="gallery">Gallery</a></li>
                 <li class="nav-item"><a href="#">Buy</a></li>
-                <li class="nav-item"><a href="#">Contact</a></li>
+                <li class="nav-item"><a href="#" data-scroll="contact">Contact</a></li>
             </ul>
         </nav>
         <!-- navbar END -->
@@ -49,7 +50,7 @@
                 <h1 class="header-title">Your dream destination?</h1>
                 <p class="header-text">We make everything possible!</p>
             </div>
-            <a class="btn btn-full" href="#">Last Minute!</a>
+            <a class="btn btn-full" href="#" data-scroll="last-minute">Last Minute!</a>
             <a class="btn btn-ghost" href="#">More places...</a>
         </div>
         <div id="arrow-down">
@@ -102,13 +103,37 @@
     </section>
     <!-- ABOUT section END -->
 
+    <section class="section-why-us">
+        <div class="container">
+            <div class="why-us">
+                <div class="why-us__content">
+                    <h3 class="why-us__heading">WHY US?</h3>
+                    <p class="why-us__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vitae fuga
+                        assumenda totam natus ratione deleniti pariatur velit voluptatum deserunt et inventore commodi, quaerat
+                        maiores ea dicta! Sed, iste aliquid. Labore voluptate maxime iure perspiciatis porro debitis fuga
+                        commodi eaque repellat nam corporis ex iste quas dolore, minus quo beatae. Autem repudiandae labore
+                        ut aliquid consequuntur soluta doloribus quia cum. Nostrum officia distinctio quo voluptates, odio
+                        delectus? Ratione pariatur earum necessitatibus perspiciatis autem, voluptatum neque consequuntur
+                        asperiores, corrupti veniam officiis non, sed sint. Quibusdam corporis sapiente excepturi neque,
+                        sequi quaerat. Deleniti quia consequatur autem cupiditate natus fugit repellat quis illo eaque blanditiis.
+                        Ipsam officiis quisquam nemo laudantium consectetur autem ab, voluptates laborum distinctio magnam
+                        tenetur nobis fugit nisi ipsa cum!</p>
+                </div>
+                <div class="why-us__image-box">
+                    <img src="img/luggage.jpeg" alt="" class="why-us__image slide-in">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section-last-minute">
         <div class="container">
+            <h2 class="last-minute__main-heading">Last minute offer!<br><span>(available in December)</span></h2>
             <div class="last-minute">
                 <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__heading">Mallorca</h3>
+                    <h3 class="last-minute__heading">Mallorca, Spain</h3>
                     <div class="last-minute__body">
-                        <p class="last-minute__price">890$</p>
+                        <p class="last-minute__price">1140 &euro;</p>
                         <div class="last-minute__about">
                             <ul class="last-minute__list">
                                 <li class="last-minute__list-item">Reason</li>
@@ -120,10 +145,10 @@
                     </div>
                 </div>
 
-                <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__heading">Mallorca</h3>
+                <div class="last-minute__item last-minute__item--second">
+                    <h3 class="last-minute__heading">Innsbruck, Austria</h3>
                     <div class="last-minute__body">
-                        <p class="last-minute__price">890$</p>
+                        <p class="last-minute__price">1490 &euro;</p>
                         <div class="last-minute__about">
                             <ul class="last-minute__list">
                                 <li class="last-minute__list-item">Reason</li>
@@ -135,10 +160,10 @@
                     </div>
                 </div>
 
-                <div class="last-minute__item last-minute__item--first">
-                    <h3 class="last-minute__heading">Mallorca</h3>
+                <div class="last-minute__item last-minute__item--third">
+                    <h3 class="last-minute__heading">Venice, Italy</h3>
                     <div class="last-minute__body">
-                        <p class="last-minute__price">890$</p>
+                        <p class="last-minute__price">890 &euro;</p>
                         <div class="last-minute__about">
                             <ul class="last-minute__list">
                                 <li class="last-minute__list-item">Reason</li>
@@ -155,37 +180,37 @@
 
     <section class="section-gallery">
         <div class="gallery-boxes" id="lightgallery">
-            <a class="gallery-link" href="img/foto1.jpg">
-                <img class="gallery-image" src="img/foto1.jpg">
+            <a class="gallery-link" href="img/gallery-1.jpeg">
+                <img class="gallery-image" src="img/gallery-1.jpeg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
                 <p class="gallery-preview-text">Show gallery</p>
             </a>
-            <a class="gallery-link" href="img/foto2.jpg">
-                <img class="gallery-image" src="img/foto2.jpg">
+            <a class="gallery-link" href="img/gallery-2.jpeg">
+                <img class="gallery-image" src="img/gallery-2.jpeg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
-            <a class="gallery-link" href="img/foto1.jpg">
-                <img class="gallery-image" src="img/foto1.jpg">
+            <a class="gallery-link" href="img/gallery-3.jpg">
+                <img class="gallery-image" src="img/gallery-3.jpg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
-            <a class="gallery-link" href="img/foto2.jpg">
-                <img class="gallery-image" src="img/foto2.jpg">
+            <a class="gallery-link" href="img/gallery-8.jpg">
+                <img class="gallery-image" src="img/gallery-8.jpg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
-            <a class="gallery-link" href="img/foto1.jpg">
-                <img class="gallery-image" src="img/foto1.jpg">
+            <a class="gallery-link" href="img/gallery-5.jpeg">
+                <img class="gallery-image" src="img/gallery-5.jpeg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
-            <a class="gallery-link" href="img/foto2.jpg">
-                <img class="gallery-image" src="img/foto2.jpg">
+            <a class="gallery-link" href="img/gallery-6.jpeg">
+                <img class="gallery-image" src="img/gallery-6.jpeg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
-            <a class="gallery-link" href="img/foto1.jpg">
-                <img class="gallery-image" src="img/foto1.jpg">
+            <a class="gallery-link" href="img/gallery-7.jpeg">
+                <img class="gallery-image" src="img/gallery-7.jpeg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
-            <a class="gallery-link" href="img/foto2.jpg">
-                <img class="gallery-image" src="img/foto2.jpg">
+            <a class="gallery-link" href="img/gallery-4.jpeg">
+                <img class="gallery-image" src="img/gallery-4.jpeg">
                 <i class="gallery-preview-icon fas fa-search-plus"></i>
             </a>
         </div>

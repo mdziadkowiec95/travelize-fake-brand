@@ -61,7 +61,7 @@ h2 {
     text-transform: uppercase;
     text-align: center;
     color: #4e4e4e;
-    font-size: 190%;
+    font-size: 2.3em;
     word-spacing: 8px;
 }
 
@@ -86,6 +86,9 @@ h4 {
     color: #eee;
 }
 
+*::selection {
+    background: rgb(114,159,152)
+  }
 
 /* --------------------------------------- */
 
@@ -307,15 +310,46 @@ nav {
 .header {
     position: relative;
     height: 100vh;
-   background-image: linear-gradient(140deg, rgba(36,30,24, 0.8), 75%, rgb(114,159,152, 0.9)), url('../img/background3.jpg');
+   /* background-image: linear-gradient(140deg, rgba(36,30,24, 0.8), 75%, rgb(114,159,152, 0.9)), url('../img/background3.jpg'); */
    height: 100vh;
    background-size: cover;
    background-position: center;
-
+   overflow: hidden;
    /* -webkit-animation: heroFadeIn 4s cubic-bezier(0,.62,0,.99) 1s forwards;
    animation: heroFadeIn 4s cubic-bezier(0,.62,0,.99) 1s forwards; */
     
 }
+
+
+.header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom:0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(140deg, rgba(36,30,24, 0.8), 75%, rgba(114,159,152, 0.9)), url('../img/background1.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    animation: headerZoom 2s linear backwards;
+    /* opacity: 0; */
+    /* animation: heroFadeIn 4s cubic-bezier(0,.62,0,.99) 1s forwards; */
+    
+}
+
+@keyframes headerZoom {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
 
 .header-overlay {
     display: block;
@@ -346,20 +380,8 @@ nav {
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     max-width: 1140px;
-    opacity: 0;
+    opacity: 1;
     z-index: 20;
-    -webkit-animation: heroFadeIn 4s cubic-bezier(0,.62,0,.99) 1s forwards;
-            animation: heroFadeIn 4s cubic-bezier(0,.62,0,.99) 1s forwards;
-}
-
-@-webkit-keyframes heroFadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes heroFadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 .header-text-box {
@@ -368,17 +390,43 @@ nav {
             backface-visibility: hidden;
 }
 
+.header-title {
+    animation: heroTxtSlideDown 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s backwards;
+}
+
 .header-text {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    font-size: 100%;
-    color: rgba(238, 238, 238, 0.8);
+    font-size: 1.2em;
+    color: rgba(238, 238, 238, 0.85);
     margin-top: 10px;
     margin-bottom: 20px;
+    animation: fadeIn 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.7s backwards;
 }
 
 .header .btn {
     margin-bottom: 5px;
+    animation: fadeIn 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.7s backwards;
+}
+.header #arrow-down {
+    animation: fadeIn 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.5s backwards;
+} 
+
+
+@keyframes heroTxtSlideDown {
+    0% { 
+        opacity: 0;
+        transform: translate(0, -60px);
+     }
+    100% { 
+        opacity: 1;
+        transform: translate(0, 0);
+     }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /*----- ARROW scroll down ------*/
@@ -402,14 +450,15 @@ nav {
     z-index: 20;
     -webkit-transition: -webkit-transform 0.5s ease;
     transition: -webkit-transform 0.5s ease;
-    transition: transform 0.5s ease;
-    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+    transition-property: opacity, transform, border;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 
 #arrow-down:hover {
     text-shadow: #eee;
     color: #eee;
-    border-color: #6d6b6b;
+    border-color: #fff;
     opacity: 0.7;
     -webkit-transform: scale(1.1) translateX(-47%);
             transform: scale(1.1) translateX(-47%);
@@ -479,6 +528,7 @@ nav {
       padding: .5em;
       font-size: 1.2em;
       text-align: center;
+      text-transform: uppercase;
       color: rgb(40,48,24);
       border-bottom: 2px solid transparent;
       -webkit-transition: all .4s cubic-bezier(0.250, 0.460, 0.450, 0.940);
@@ -560,6 +610,51 @@ nav {
     opacity: 1;
 }
 
+/* --------------------------------------- */
+/* Section WHY-US -------- */
+/* --------------------------------------- */
+
+.section-why-us {
+
+}
+
+.why-us {
+    display: flex;
+}
+
+.why-us__content {
+    flex: 1;
+    padding: 0 1em;
+    position: relative;
+}
+
+.why-us__content::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    border-left: 2px solid rgb(114,159,152);
+    border-top: 2px solid rgb(114,159,152);
+}
+
+.why-us__heading {
+    font-size: 1.7em;
+}
+
+.why-us__paragraph {
+    text-align: justify;
+}
+
+.why-us__image-box {
+    flex: 1;
+}
+
+.why-us__image {
+    box-shadow: -1px 0px 4px #aaa;
+}
 
 /* --------------------------------------- */
 
@@ -591,7 +686,7 @@ nav {
 .gallery-image {
     height: 100%;
     width: 100%;
-    opacity: 1;
+    opacity: .85;
     -webkit-transform: scale(1.15);
             transform: scale(1.15);
     -webkit-transition-property: opacity, -webkit-transform;
@@ -638,7 +733,7 @@ nav {
 
 .section-opinions {
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.73)), to(rgba(0, 0, 0, 0.73))), url(../img/background2.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)), url(../img/background2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)), url(../img/background3.jpg);
     background-size: cover;
     background-position: center;
     padding-bottom: 40px;
@@ -700,13 +795,20 @@ nav {
 
 
 /* --------------------------------------- */
-/* Section LAST-MINUTE (carousel) -------- */
+/* Section LAST-MINUTE -------- */
 /* --------------------------------------- */
+
 
 .last-minute {
     display: flex;
     flex-direction: column;
     color: rgb(40,48,24);
+    padding: 2em 0;
+}
+
+.last-minute__main-heading span {
+    font-size: initial;
+    text-transform: initial;
 }
 
 .last-minute__item {
@@ -734,6 +836,12 @@ nav {
 .last-minute__item--first {
     background-image: url(../img/last-minute-1.jpg);
 }
+.last-minute__item--second {
+    background-image: url(../img/last-minute-2.jpg);
+}
+.last-minute__item--third {
+    background-image: url(../img/last-minute-3.jpeg);
+}
 
 .last-minute__heading {
     transition: background-color .3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
@@ -755,7 +863,7 @@ nav {
 
 .last-minute__price { 
     margin-top: .7em;
-    font-size: 2rem;
+    font-size: 2.3em;
 }
 
 .last-minute__about {
@@ -1197,7 +1305,7 @@ footer {
 @media (min-width: 576px) {
 
     .header-text {
-        font-size: 1.3em;
+        font-size: 1.5em;
         text-align: left;
     }
 
@@ -1209,19 +1317,11 @@ footer {
         display: block;
     }
 
-    .slick-slider {
-        /* padding: 0 4rem; */
-    }
-    .slick-prev {
-        left: 0;
-    }
-    .slick-next {
-        right: 25px;
+    .last-minute__about {
+        display: block;
     }
 
 }
-
-
 
 @media (min-width: 769px) {
     .btn {
@@ -1236,7 +1336,7 @@ footer {
     }
 
     .header-title {
-        font-size: 3.5em;
+        font-size: 3.8em;
         font-weight: 300;
         white-space: nowrap;
     }
@@ -1267,8 +1367,8 @@ footer {
         left: 0;
         right: 0;
         bottom: unset;
-        background-color: rgb(40,48,24);
-        box-shadow: 0 1px 3px #222;
+        background-color: rgba(40, 48, 24, 0.95);
+        box-shadow: 0 1px 2px #222;
         animation: navSlide .3s linear;
     }
 
@@ -1307,7 +1407,7 @@ footer {
 
     .main-nav .nav-item {
         width: auto;
-        margin: .5em;
+        margin: 1em;
     }
 
     .main-nav .nav-item:last-child {
@@ -1317,7 +1417,7 @@ footer {
     .main-nav .nav-item a:link, 
     .main-nav .nav-item a:visited {
           padding: 0;
-          font-size: 1.3em;
+          font-size: 1.2em;
           color: #fff;
           border-bottom: 2px solid transparent;
     }
@@ -1381,10 +1481,7 @@ footer {
     .last-minute__item {
         margin: 0 1rem;
     }
-    .last-minute__about {
-        display: block;
-    }
-    
+
     .benefits-image {
         display: block;
     }
@@ -1409,7 +1506,7 @@ footer {
     .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 7em 0;
+        padding: 8em 0 0 0;
     }
     
     .header {

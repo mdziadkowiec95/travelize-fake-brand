@@ -128,7 +128,7 @@ a:hover {
     -webkit-box-shadow: -1px -1px 4px rgba(40,48,24, 0.3);
             box-shadow: -1px -1px 4px rgba(40,48,24, 0.3);
     -webkit-transition: all 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    transition: all 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940); 
+    transition: all .4s cubic-bezier(0.250, 0.460, 0.450, 0.940); 
 }
 
 .btn:hover {
@@ -307,7 +307,7 @@ nav {
 .header {
     position: relative;
     height: 100vh;
-   background-image: linear-gradient(45deg, rgba(36,30,24, 0.9), 85%, rgb(114,159,152, 0.7)), url('../img/background3.jpg');
+   background-image: linear-gradient(140deg, rgba(36,30,24, 0.8), 75%, rgb(114,159,152, 0.9)), url('../img/background3.jpg');
    height: 100vh;
    background-size: cover;
    background-position: center;
@@ -481,8 +481,8 @@ nav {
       text-align: center;
       color: rgb(40,48,24);
       border-bottom: 2px solid transparent;
-      -webkit-transition: all .25s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-      transition: all .25s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+      -webkit-transition: all .4s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+      transition: all .4s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 
 .main-nav .nav-item a:hover,

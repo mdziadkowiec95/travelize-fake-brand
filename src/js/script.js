@@ -129,7 +129,7 @@ lightGallery(document.getElementById('lightgallery'));
 
 // Google Maps settings below
 
-// const map = new GMaps({
+// var map = new GMaps({
 //     div: '#map',
 //     lat: 50.0301489,
 //     lng: 19.918081,
@@ -144,6 +144,12 @@ lightGallery(document.getElementById('lightgallery'));
 //         content: '<p>Our main office</p>'
 //     }
 // });
+
+var mymap = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(mymap);
 
 
 $(document).ready(function () {
@@ -321,31 +327,31 @@ $(document).ready(function () {
     $('li.about').click(function () {
         $('body,html').animate({
             scrollTop: $about.offset().top
-        }, 1000, function () { })
+        }, 1000)
     });
 
     $('a[data-scroll="last-minute"').click(function () {
         $('body,html').animate({
             scrollTop: $('.section-last-minute').offset().top
-        }, 1000, function () { })
+        }, 1000)
     });
 
     $('a[data-scroll="about"').click(function () {
         $('body,html').animate({
             scrollTop: $('.section-about').offset().top
-        }, 1000, function () { })
+        }, 1000)
     });
 
     $('a[data-scroll="gallery"').click(function () {
         $('body,html').animate({
             scrollTop: $('.section-gallery').offset().top
-        }, 1000, function () { })
+        }, 1000)
     });
 
     $('a[data-scroll="contact"').click(function () {
         $('body,html').animate({
             scrollTop: $('.section-contact').offset().top
-        }, 1000, function () { })
+        }, 1000)
     });
 
 

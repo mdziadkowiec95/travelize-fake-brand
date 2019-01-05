@@ -11,13 +11,6 @@
       content="Travelize is a place where you can search through huge amount of places worth to vist. You should check it out!"
     />
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-      type="text/css"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css" />
     <link
       rel="stylesheet"
@@ -41,7 +34,7 @@
 
     <!-- Favicon part below -->
 
-    <link
+    <!-- <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/favicons/apple-touch-icon.png"
@@ -67,7 +60,7 @@
     <link rel="shortcut icon" href="/favicons/favicon.ico" />
     <meta name="msapplication-TileColor" content="#2b5797" />
     <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" /> -->
   </head>
 
   <body>
@@ -78,12 +71,14 @@
         <ul class="main-nav">
           <!-- <img src="img/earth.png" class="nav-logo" id="nav-logo"> -->
           <img src="img/travelize-logo.png" class="nav-logo" id="nav-logo" />
-          <li class="nav-item"><a href="#" data-scroll="about">About</a></li>
-          <li class="nav-item">
+          <li class="nav-item" id="about">
+            <a href="#" data-scroll="about">About</a>
+          </li>
+          <li class="nav-item" id="gallery">
             <a href="#" data-scroll="gallery">Gallery</a>
           </li>
-          <li class="nav-item"><a href="#">Buy</a></li>
-          <li class="nav-item">
+          <li class="nav-item"><a href="#" id="buy">Buy</a></li>
+          <li class="nav-item" id="contact">
             <a href="#" data-scroll="contact">Contact</a>
           </li>
         </ul>
@@ -240,7 +235,7 @@
       </div>
     </section>
 
-    <section class="section-why-us">
+    <!-- <section class="section-why-us">
       <div class="container">
         <div class="why-us">
           <div class="why-us__content">
@@ -268,9 +263,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="section-steps">
+    <!-- <section class="section-steps">
       <div class="container">
         <div class="steps">
           <div class="steps__image-box">
@@ -304,7 +299,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="section-opinions">
       <div class="container">
@@ -361,37 +356,93 @@
       <div class="gallery-boxes" id="lightgallery">
         <a class="gallery-link" href="img/gallery-1.jpeg">
           <img class="gallery-image" src="img/gallery-1.jpeg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
           <p class="gallery-preview-text">Show gallery</p>
         </a>
         <a class="gallery-link" href="img/gallery-2.jpeg">
           <img class="gallery-image" src="img/gallery-2.jpeg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
         <a class="gallery-link" href="img/gallery-3.jpg">
           <img class="gallery-image" src="img/gallery-3.jpg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
         <a class="gallery-link" href="img/gallery-8.jpg">
           <img class="gallery-image" src="img/gallery-8.jpg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
         <a class="gallery-link" href="img/gallery-5.jpeg">
           <img class="gallery-image" src="img/gallery-5.jpeg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
         <a class="gallery-link" href="img/gallery-6.jpeg">
           <img class="gallery-image" src="img/gallery-6.jpeg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
         <a class="gallery-link" href="img/gallery-7.jpeg">
           <img class="gallery-image" src="img/gallery-7.jpeg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
         <a class="gallery-link" href="img/gallery-4.jpeg">
           <img class="gallery-image" src="img/gallery-4.jpeg" />
-          <i class="gallery-preview-icon fas fa-search-plus"></i>
+          <i class="gallery-preview-icon fa fa-search-plus"></i>
         </a>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <h2 class="faq__heading">FAQ</h2>
+        <div class="faq__wrapper">
+          <div class="faq__box">
+            <div class="faq__head">
+              <h3 class="faq__question">QUESTION QUESTION QUESTION QUESTION</h3>
+              <div class="faq__sign">+</div>
+            </div>
+            <div class="faq__body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              eum excepturi aliquid ipsum dignissimos quae voluptas atque
+              doloremque nesciunt? Veritatis nisi enim, nulla facilis eligendi
+              harum laboriosam. Ea, nesciunt minima.
+            </div>
+          </div>
+          <div class="faq__box">
+            <div class="faq__head">
+              <h3 class="faq__question">QUESTION QUESTION QUESTION QUESTION</h3>
+              <div class="faq__sign">+</div>
+            </div>
+            <div class="faq__body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              eum excepturi aliquid ipsum dignissimos quae voluptas atque
+              doloremque nesciunt? Veritatis nisi enim, nulla facilis eligendi
+              harum laboriosam. Ea, nesciunt minima.
+            </div>
+          </div>
+          <div class="faq__box">
+            <div class="faq__head">
+              <h3 class="faq__question">QUESTION QUESTION QUESTION QUESTION</h3>
+              <div class="faq__sign">+</div>
+            </div>
+            <div class="faq__body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              eum excepturi aliquid ipsum dignissimos quae voluptas atque
+              doloremque nesciunt? Veritatis nisi enim, nulla facilis eligendi
+              harum laboriosam. Ea, nesciunt minima.
+            </div>
+          </div>
+          <div class="faq__box">
+            <div class="faq__head">
+              <h3 class="faq__question">QUESTION QUESTION QUESTION QUESTION</h3>
+              <div class="faq__sign">+</div>
+            </div>
+            <div class="faq__body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+              eum excepturi aliquid ipsum dignissimos quae voluptas atque
+              doloremque nesciunt? Veritatis nisi enim, nulla facilis eligendi
+              harum laboriosam. Ea, nesciunt minima.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -467,13 +518,13 @@
     <section class="section-contact">
       <div class="container">
         <div class="contact-wrapper">
+          <div id="map"></div>
           <form
             name="contact-form"
             method="post"
             action="mailer.php"
             class="contact-form"
           >
-
             <div class="contact-form-title"><h2>Contact us!</h2></div>
 
             <!-- messing around with form label -->
@@ -487,8 +538,6 @@
               />
               <label for="name">Name label</label>
             </div>
-
-
 
             <input
               class="form-control"
@@ -546,8 +595,6 @@
             <!-- <div class="form-messages success">Thank you. Your message has been sent correctly!</div> -->
             <!-- <div class="form-messages error">Please fill it correctlty...</div> -->
           </form>
-
-          <div id="map"></div>
         </div>
       </div>
     </section>
@@ -621,15 +668,6 @@
     <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 
     <!-- SLICK experiments -->
-    <script
-      type="text/javascript"
-      src="//code.jquery.com/jquery-1.11.0.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
-    ></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
 
     <script type="text/javascript" src="js/script.js"></script>
     <!-- <script src="js/gmaps.min.js"></script> -->

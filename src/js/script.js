@@ -1,73 +1,3 @@
-// SLICK experiments
-
-// $('.slider-for').slick({
-//   slidesToShow: 1,
-//   slidesToScroll: 1,
-//   arrows: false,
-//   fade: true,
-//   asNavFor: '.slider-nav'
-// });
-// $('.slider-nav').slick({
-//   slidesToShow: 1,
-//   slidesToScroll: 1,
-//   asNavFor: '.slider-for',
-//   dots: true,
-//   centerMode: true,
-//   centerPadding: '0px',
-//   focusOnSelect: true
-// });
-
-$('.slider-test').slick({
-  //   centerMode: true,
-  centerPadding: '0',
-  slidesToShow: 3,
-  dots: true,
-  arrows: true,
-  //   infinite: false,
-  speed: 1500,
-  centerMode: true,
-  centerPadding: '0px',
-  initialSlide: 1,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 3
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
-    }
-  ]
-});
-
-// $('.slider-test').on('beforeChange', function(
-//   event,
-//   slick,
-//   currentSlide,
-//   nextSlide
-// ) {
-//   var shadowNum = 4 - nextSlide;
-
-//   console.log(2 * shadow);
-
-//   $('.slick-slide').css('box-shadow', '5px 5px 5px #222');
-//   $('.slick-current')
-//     .next()
-//     .css('box-shadow', 'none');
-
-//   console.log(shadowNum, nextSlide);
-// });
-
 /* ------- GLOBAL variables ---------*/
 var header = document.querySelector('.header'),
   headerOverlay = document.querySelector('.header-overlay'),
@@ -118,9 +48,40 @@ function debounce(func, wait, immediate) {
 
 // window.addEventListener('scroll', debounce(checkSlide));
 
+/* ----- FAQs ----- */
+// $('.faq__body')
+//   .eq(0)
+//   .slideDown();
+
+$('.faq__box').on('click', function(e) {
+  if ($('.faq__sign', this).text() === '+') {
+    $('.faq__head').removeClass('js-open');
+    $('.faq__head', this).addClass('js-open');
+    $('.faq__body').slideUp();
+    $('.faq__sign').text('+');
+    $('.faq__head.js-open + .faq__body', this).slideDown();
+    $('.faq__sign', this).text('-');
+  } else if ($('.faq__sign', this).text() === '-') {
+    $('.faq__head.js-open + .faq__body', this).slideUp();
+    $('.faq__head').removeClass('js-open');
+    $('.faq__sign', this).text('+');
+  }
+
+  // if ($('.faq__sign', this).text() === '-') {
+  //   $('.faq__head', this).removeClass('js-open');
+  //   $('faq__body').slideUp();
+  //   $('.faq__head.js-open + .faq__body', this).slideDown();
+  // }
+});
+
 /* ----- Navigation ----- */
 
 // navigation toggling on mobile
+
+$('.nav-item a').on('click', function() {
+  $('.navbar').removeClass('open');
+  $('.nav-toggle').removeClass('open');
+});
 
 function toggleNav() {
   navToggler.classList.toggle('open');
@@ -338,6 +299,8 @@ benefitsButtons.forEach(button =>
 
 var $about = $('.section-about');
 
+$ = jQuery;
+
 $(document).ready(function() {
   // ARROW - slide down behavior below...
 
@@ -353,56 +316,59 @@ $(document).ready(function() {
 
   // Menu item animation after click below...
 
-  $('li.about').click(function() {
-    $('body,html').animate(
-      {
-        scrollTop: $about.offset().top
-      },
-      1000
-    );
+  $('.nav-item').click(function(e) {
+    e.preventDefault();
+
+    var $scrollTo = $(this).attr('id');
+
+    $('body,html')
+      .stop()
+      .animate(
+        {
+          scrollTop: $('.section-' + $scrollTo).offset().top
+        },
+        1000
+      );
   });
 
-  $('a[data-scroll="last-minute"').click(function() {
-    $('body,html').animate(
-      {
-        scrollTop: $('.section-last-minute').offset().top
-      },
-      1000
-    );
-  });
+  // $('#about').click(function() {
+  //   $('body,html')
+  //     .stop()
+  //     .animate(
+  //       {
+  //         scrollTop: $('.section-about').offset().top
+  //       },
+  //       1000
+  //     );
+  // });
 
-  $('a[data-scroll="about"').click(function() {
-    $('body,html').animate(
-      {
-        scrollTop: $('.section-about').offset().top
-      },
-      1000
-    );
-  });
+  // $('#gallery').click(function() {
+  //   $('body,html')
+  //     .stop()
+  //     .animate(
+  //       {
+  //         scrollTop: $('.section-gallery').offset().top
+  //       },
+  //       1000
+  //     );
+  // });
 
-  $('a[data-scroll="gallery"').click(function() {
-    $('body,html').animate(
-      {
-        scrollTop: $('.section-gallery').offset().top
-      },
-      1000
-    );
-  });
-
-  $('a[data-scroll="contact"').click(function() {
-    $('body,html').animate(
-      {
-        scrollTop: $('.section-contact').offset().top
-      },
-      1000
-    );
-  });
+  // $('#contact').click(function() {
+  //   $('body,html')
+  //     .stop()
+  //     .animate(
+  //       {
+  //         scrollTop: $('.section-contact').offset().top
+  //       },
+  //       1000
+  //     );
+  // });
 
   // Animations on scroll
 
   $('.js--wp-1').waypoint(
     function(direction) {
-      $('.js--wp-1').addClass('animated fadeIn');
+      $('.js--wp-1').addClass('animated');
     },
     {
       offset: '70%'

@@ -1,35 +1,100 @@
+// SLICK experiments
+
+// $('.slider-for').slick({
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   arrows: false,
+//   fade: true,
+//   asNavFor: '.slider-nav'
+// });
+// $('.slider-nav').slick({
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   asNavFor: '.slider-for',
+//   dots: true,
+//   centerMode: true,
+//   centerPadding: '0px',
+//   focusOnSelect: true
+// });
+
+$('.slider-test').slick({
+  //   centerMode: true,
+  centerPadding: '0',
+  slidesToShow: 3,
+  dots: true,
+  arrows: true,
+  //   infinite: false,
+  speed: 1500,
+  centerMode: true,
+  centerPadding: '0px',
+  initialSlide: 1,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+// $('.slider-test').on('beforeChange', function(
+//   event,
+//   slick,
+//   currentSlide,
+//   nextSlide
+// ) {
+//   var shadowNum = 4 - nextSlide;
+
+//   console.log(2 * shadow);
+
+//   $('.slick-slide').css('box-shadow', '5px 5px 5px #222');
+//   $('.slick-current')
+//     .next()
+//     .css('box-shadow', 'none');
+
+//   console.log(shadowNum, nextSlide);
+// });
+
 /* ------- GLOBAL variables ---------*/
 var header = document.querySelector('.header'),
-    headerOverlay = document.querySelector('.header-overlay'),
-    navToggler = document.querySelector('.nav-toggle'),
-    navbar = document.querySelector('.navbar');
-
+  headerOverlay = document.querySelector('.header-overlay'),
+  navToggler = document.querySelector('.nav-toggle'),
+  navbar = document.querySelector('.navbar');
 
 /* ------- GLOBAL functions ---------*/
 
 // debouncing on scroll funcitons
 
 function debounce(func, wait, immediate) {
-    var timeout;
-    return function () {
-        var context = this, args = arguments;
-        var later = function () {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
+  var timeout;
+  return function() {
+    var context = this,
+      args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
     };
-};
-
-
-
-
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 
 // var sliderImages = document.querySelectorAll('.slide-in');
-
 
 // function checkSlide() {
 //     console.log('ok');
@@ -58,8 +123,8 @@ function debounce(func, wait, immediate) {
 // navigation toggling on mobile
 
 function toggleNav() {
-    navToggler.classList.toggle('open');
-    navbar.classList.toggle('open');
+  navToggler.classList.toggle('open');
+  navbar.classList.toggle('open');
 }
 
 // document.addEventListener('click', function (e) {
@@ -78,15 +143,15 @@ navToggler.addEventListener('click', toggleNav);
 
 // navigation sticky on desktop
 function stickNavbar() {
-    var headerHeight = header.offsetHeight;
-    var scrolledTop = window.scrollY;
+  var headerHeight = header.offsetHeight;
+  var scrolledTop = window.scrollY;
 
-    if (scrolledTop >= headerHeight) {
-        navbar.classList.add('js-sticky');
-    } else {
-        navbar.classList.remove('js-sticky');
-    }
-};
+  if (scrolledTop >= headerHeight) {
+    navbar.classList.add('js-sticky');
+  } else {
+    navbar.classList.remove('js-sticky');
+  }
+}
 
 window.addEventListener('scroll', debounce(stickNavbar, 15));
 
@@ -95,16 +160,15 @@ window.addEventListener('scroll', debounce(stickNavbar, 15));
 /* ----------------------------------*/
 
 function headerFade() {
-    var headerHeight = header.offsetHeight;
-    var scrolledTop = window.scrollY;
-    var opacityPercentage = scrolledTop / headerHeight;
+  var headerHeight = header.offsetHeight;
+  var scrolledTop = window.scrollY;
+  var opacityPercentage = scrolledTop / headerHeight;
 
-    headerOverlay.style.backgroundColor = 'rgba(255, 255, 255, ' + opacityPercentage + ')';
-};
+  headerOverlay.style.backgroundColor =
+    'rgba(255, 255, 255, ' + opacityPercentage + ')';
+}
 
 window.addEventListener('scroll', headerFade);
-
-
 
 /* ----- FAQ accordion ---- */
 
@@ -121,11 +185,9 @@ window.addEventListener('scroll', headerFade);
 
 // document.querySelector('.faq').addEventListener('click', toggleFAQs);
 
-
 /* ----- LightGallery JS plugin init ---- */
 
 lightGallery(document.getElementById('lightgallery'));
-
 
 // Google Maps settings below
 
@@ -148,34 +210,26 @@ lightGallery(document.getElementById('lightgallery'));
 var mymap = L.map('map').setView([51.505, -0.09], 13);
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  attribution:
+    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
+$(document).ready(function() {
+  // .last-minute sliding on mobile
+  $('.last-minute__heading').on('click', function(e) {
+    e.preventDefault();
 
-$(document).ready(function () {
-
-    // .last-minute sliding on mobile
-    $('.last-minute__heading').on('click', function (e) {
-        e.preventDefault();
-
-        // check if items are in column layout
-        if ($('.last-minute').css('flex-direction') === 'column') {
-            $(this).next().children('.last-minute__about').slideToggle();
-        }
-
-    });
-
+    // check if items are in column layout
+    if ($('.last-minute').css('flex-direction') === 'column') {
+      $(this)
+        .next()
+        .children('.last-minute__about')
+        .slideToggle();
+    }
+  });
 });
 
-
 /* ---------- add classes on scroll ------ */
-
-
-
-
-
-
-
 
 /* --------- Code below needs to be refactored ---------*/
 
@@ -208,7 +262,6 @@ $(document).ready(function () {
 //     }
 // }
 
-
 // function printDaysLeft() {
 //     const daysLeft = setLastMinuteTime();
 //     document.querySelector('.last-minute-timer span').textContent = daysLeft;
@@ -216,36 +269,32 @@ $(document).ready(function () {
 
 // printDaysLeft();
 
-
 // -----------------------------
 
-
-// Section Gallery ----> image preview functionality 
+// Section Gallery ----> image preview functionality
 
 const galleryBoxes = document.querySelectorAll('.gallery-box'); // grab a collection of Gallery boxes.
 
-var image = function (e) {
+var image = function(e) {
+  const previewBox = document.querySelector('.gallery-preview-box'); // grab the preview div
+  const previewBoxImg = previewBox.firstElementChild; // grab the img inside the div
 
-    const previewBox = document.querySelector('.gallery-preview-box'); // grab the preview div
-    const previewBoxImg = previewBox.firstElementChild;  // grab the img inside the div
+  if (e.target.tagName === 'SPAN') {
+    // check what was clicked and...
 
-    if (e.target.tagName === 'SPAN') {   // check what was clicked and... 
+    var img = e.target.nextElementSibling; // ...go to the img directly
+    previewBoxImg.setAttribute('src', img.getAttribute('src')); // then set SRC to SRC of clicked img
+  } else {
+    var img = e.target.parentNode.nextElementSibling;
+    previewBoxImg.setAttribute('src', img.getAttribute('src'));
+  }
 
-        var img = e.target.nextElementSibling; // ...go to the img directly
-        previewBoxImg.setAttribute('src', img.getAttribute('src')); // then set SRC to SRC of clicked img
+  previewBox.classList.add('show'); // change display property of PREVIEW BOX by adding .show class
 
-    } else {
-        var img = e.target.parentNode.nextElementSibling;
-        previewBoxImg.setAttribute('src', img.getAttribute('src'));
-    }
-
-
-    previewBox.classList.add('show');  // change display property of PREVIEW BOX by adding .show class
-
-    previewBox.addEventListener('click', () => {
-        previewBox.classList.remove('show');    // remove .show class 
-    });
-    return img;
+  previewBox.addEventListener('click', () => {
+    previewBox.classList.remove('show'); // remove .show class
+  });
+  return img;
 };
 
 // alert(image);
@@ -254,174 +303,152 @@ var image = function (e) {
 //document.querySelector('.prev-foto').addEventListener('click', prev);
 //document.querySelector('.next-foto').addEventListener('click', next);
 
+galleryBoxes.forEach(box => box.addEventListener('click', image)); //loop through the gallery and attach event listeners to each gallery item
 
-
-galleryBoxes.forEach((box) => box.addEventListener('click', image)); //loop through the gallery and attach event listeners to each gallery item
-
-
-
-
-
-
-
-// BENEFITS section change script below 
-
+// BENEFITS section change script below
 
 const benefitsParent = document.querySelector('.benefits-buttons');
 const benefitsButtons = document.querySelectorAll('.benefits-btn');
 const benefitsContentDivs = document.querySelectorAll('.benefits-content');
 
-
 function changeBenefit(e) {
-    const clickedBtn = e.target;
-    const clickedBtnData = clickedBtn.dataset.target;
+  const clickedBtn = e.target;
+  const clickedBtnData = clickedBtn.dataset.target;
 
-
-    for (let i = 0; i < benefitsButtons.length; i++) {
-
-        if (benefitsButtons[i].className === "benefits-btn active") {
-            benefitsButtons[i].classList.remove('active');
-            benefitsContentDivs[i].classList.remove('active');
-        }
-
-        if (clickedBtnData === benefitsContentDivs[i].dataset.target) {
-            benefitsContentDivs[i].classList.add('active');
-        } else {
-            benefitsContentDivs[i].classList.remove('active');
-        }
+  for (let i = 0; i < benefitsButtons.length; i++) {
+    if (benefitsButtons[i].className === 'benefits-btn active') {
+      benefitsButtons[i].classList.remove('active');
+      benefitsContentDivs[i].classList.remove('active');
     }
-    clickedBtn.classList.add('active');
-};
 
-benefitsButtons.forEach((button) => button.addEventListener('click', changeBenefit));
+    if (clickedBtnData === benefitsContentDivs[i].dataset.target) {
+      benefitsContentDivs[i].classList.add('active');
+    } else {
+      benefitsContentDivs[i].classList.remove('active');
+    }
+  }
+  clickedBtn.classList.add('active');
+}
 
-
-
+benefitsButtons.forEach(button =>
+  button.addEventListener('click', changeBenefit)
+);
 
 /* section PLANS scritp END */
 
+var $about = $('.section-about');
 
+$(document).ready(function() {
+  // ARROW - slide down behavior below...
 
+  $('#arrow-down').click(function() {
+    $('body,html').animate(
+      {
+        scrollTop: $about.offset().top
+      },
+      1000,
+      function() {}
+    );
+  });
 
+  // Menu item animation after click below...
 
+  $('li.about').click(function() {
+    $('body,html').animate(
+      {
+        scrollTop: $about.offset().top
+      },
+      1000
+    );
+  });
 
-var $about = $(".section-about");
+  $('a[data-scroll="last-minute"').click(function() {
+    $('body,html').animate(
+      {
+        scrollTop: $('.section-last-minute').offset().top
+      },
+      1000
+    );
+  });
 
+  $('a[data-scroll="about"').click(function() {
+    $('body,html').animate(
+      {
+        scrollTop: $('.section-about').offset().top
+      },
+      1000
+    );
+  });
 
-$(document).ready(function () {
+  $('a[data-scroll="gallery"').click(function() {
+    $('body,html').animate(
+      {
+        scrollTop: $('.section-gallery').offset().top
+      },
+      1000
+    );
+  });
 
+  $('a[data-scroll="contact"').click(function() {
+    $('body,html').animate(
+      {
+        scrollTop: $('.section-contact').offset().top
+      },
+      1000
+    );
+  });
 
+  // Animations on scroll
 
-
-    // ARROW - slide down behavior below...
-
-    $('#arrow-down').click(function () {
-        $('body,html').animate({
-            scrollTop: $about.offset().top
-        }, 1000, function () { })
-    });
-
-
-    // Menu item animation after click below...    
-
-    $('li.about').click(function () {
-        $('body,html').animate({
-            scrollTop: $about.offset().top
-        }, 1000)
-    });
-
-    $('a[data-scroll="last-minute"').click(function () {
-        $('body,html').animate({
-            scrollTop: $('.section-last-minute').offset().top
-        }, 1000)
-    });
-
-    $('a[data-scroll="about"').click(function () {
-        $('body,html').animate({
-            scrollTop: $('.section-about').offset().top
-        }, 1000)
-    });
-
-    $('a[data-scroll="gallery"').click(function () {
-        $('body,html').animate({
-            scrollTop: $('.section-gallery').offset().top
-        }, 1000)
-    });
-
-    $('a[data-scroll="contact"').click(function () {
-        $('body,html').animate({
-            scrollTop: $('.section-contact').offset().top
-        }, 1000)
-    });
-
-
-
-    // Animations on scroll 
-
-    $('.js--wp-1').waypoint(function (direction) {
-        $('.js--wp-1').addClass('animated fadeIn');
+  $('.js--wp-1').waypoint(
+    function(direction) {
+      $('.js--wp-1').addClass('animated fadeIn');
     },
-        {
-            offset: '70%'
-        });
+    {
+      offset: '70%'
+    }
+  );
 
+  //$('.best-offer').on(
+  //    "click",
+  //    function () {
+  //      if ($('.show', this).text() === "+") {
+  //        console.log("+");
+  //        $('.photo-box', this).addClass('js-open')
+  //        $('div.js-open + article', this).slideDown();
+  //        $('.show', this).text("-");
+  //      } else if ($('.show', this).text() === "-") {
+  //        console.log("-");
+  //        $('.photo-box', this).removeClass('js-open')
+  //        $('article', this).slideUp();
+  //        $('.show', this).text("+");
+  //      }
+  //
+  //    });  // BEST jQuery script
 
-    //$('.best-offer').on(
-    //    "click",
-    //    function () {
-    //      if ($('.show', this).text() === "+") {
-    //        console.log("+");
-    //        $('.photo-box', this).addClass('js-open')
-    //        $('div.js-open + article', this).slideDown();
-    //        $('.show', this).text("-");
-    //      } else if ($('.show', this).text() === "-") {
-    //        console.log("-");
-    //        $('.photo-box', this).removeClass('js-open')
-    //        $('article', this).slideUp();
-    //        $('.show', this).text("+");
-    //      }
-    //
-    //    });  // BEST jQuery script 
+  // Navigation on mobile behavior below...
 
+  // $('.nav-toggle').click(function () {
+  //     $(this).toggleClass('open');
+  //     $('nav.mobile').toggleClass('nav-active');
+  //     $('nav.mobile').click(function () {
+  //         $('nav.mobile').removeClass('nav-active');
+  //         $('.nav-toggle').removeClass('open');
+  //     });
 
-    // Navigation on mobile behavior below...
+  //     return false;
+  // });
 
-    // $('.nav-toggle').click(function () {
-    //     $(this).toggleClass('open');
-    //     $('nav.mobile').toggleClass('nav-active');
-    //     $('nav.mobile').click(function () {
-    //         $('nav.mobile').removeClass('nav-active');
-    //         $('.nav-toggle').removeClass('open');
-    //     });
+  // POPUP show
 
-    //     return false;
-    // });
-
-
-
-
-    // POPUP show
-
-    //    setTimeout(function() {
-    //        $('.newsletter-popup').fadeIn().css('display', 'flex');
-    //    }, 4000);
-    //    
-    //    // popup listener 
-    //    $('.submit-btn, .popup-close').on('click', function(e) {
-    //        e.preventDefault();
-    //        $('.newsletter-popup').fadeOut();
-    //    });
-    //    
+  //    setTimeout(function() {
+  //        $('.newsletter-popup').fadeIn().css('display', 'flex');
+  //    }, 4000);
+  //
+  //    // popup listener
+  //    $('.submit-btn, .popup-close').on('click', function(e) {
+  //        e.preventDefault();
+  //        $('.newsletter-popup').fadeOut();
+  //    });
+  //
 });
-
-
-
-
-
-
-
-
-
-
-
-

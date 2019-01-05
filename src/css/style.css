@@ -128,8 +128,7 @@ a:hover {
   text-align: center;
   font-size: 1.2em;
   font-weight: 700;
-  -webkit-box-shadow: -1px -1px 4px rgba(40, 48, 24, 0.3);
-  box-shadow: -1px -1px 4px rgba(40, 48, 24, 0.3);
+  box-shadow: 0 0 3px rgba(40, 48, 24, 0.3);
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -137,8 +136,7 @@ a:hover {
 .btn:hover,
 .btn-submit:hover {
   cursor: pointer;
-  -webkit-box-shadow: -1px 1px 6px rgba(40, 48, 24, 0.5);
-  box-shadow: -1px 1px 6px rgba(40, 48, 24, 0.5);
+  box-shadow: 0 0 5px rgba(40, 48, 24, 0.5);
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
 }
@@ -727,8 +725,12 @@ nav {
 /* SECTION STEPS */
 /* --------------------------------------- */
 
+.section-steps {
+}
+
 .steps {
   display: flex;
+  padding: 4em 0;
 }
 
 .steps__image-box {
@@ -776,19 +778,25 @@ nav {
       linear,
       left top,
       left bottom,
-      from(rgba(0, 0, 0, 0.73)),
+      from(rgba(255, 119, 119, 0.73)),
       to(rgba(0, 0, 0, 0.73))
     ),
     url(../img/background2.jpg);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.73), rgba(0, 0, 0, 0.73)),
+  background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0.73)
+    ),
     url(../img/background3.jpg);
   background-size: cover;
   background-position: center;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 40px;
 }
 
 .opinions-heading {
-  color: #eee;
+  color: #4e4e4e;
   margin-bottom: 80px;
 }
 
@@ -810,7 +818,7 @@ nav {
   position: absolute;
   content: '\201C';
   font-size: 500%;
-  color: #eee;
+  color: #4e4e4e;
   top: -50px;
   left: -35px;
 }
@@ -826,7 +834,7 @@ nav {
 }
 
 .opinion-paragraph {
-  color: #fff;
+  color: #222;
   font-size: 1.2em;
   text-align: justify;
 }
@@ -901,7 +909,7 @@ nav {
 
 .last-minute__item:hover {
   box-shadow: -3px 3px 10px rgba(40, 48, 24, 0.4);
-  transform: translateY(-5px);
+  transform: translateY(-7px);
 }
 
 .last-minute__item:hover .last-minute__body {
@@ -1036,7 +1044,7 @@ nav {
 }
 
 .form-control {
-  /* background-color: rgb(240,236,235); */
+  background-color: transparent;
   margin-bottom: 0.7em;
   outline: none;
   border: 1px solid rgba(114, 159, 152, 0);
@@ -1651,3 +1659,57 @@ footer {
 /* --------------------------------------- */
 
 /* ---- GO TOP button ----- */
+
+/* SLICK experiments */
+
+.section-gallery {
+  background-color: #eee;
+}
+
+.slick-exp {
+  background-color: #b11818;
+}
+
+/* .slick-slide {
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.slick-active:not(.slick-current) {
+  transform: scale(0.7);
+}
+
+.slick-active.slick-current {
+  transform: scale(1);
+  position: relative;
+  z-index: 20;
+}
+
+.slick-slide {
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.slick-slide.slick-active {
+  opacity: 1;
+}
+
+.slick-slide.slick-active:not(.slick-current) {
+  transform: scale(0.7) translateX(-200px);
+  opacity: 0.9;
+} */
+
+.form-test {
+  position: relative;
+}
+
+.form-test .form-control {
+}
+
+.form-test label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline;
+  font-size: 0.8em;
+  margin: 0;
+}

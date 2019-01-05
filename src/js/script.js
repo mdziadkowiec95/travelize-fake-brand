@@ -48,41 +48,6 @@ function debounce(func, wait, immediate) {
 
 // window.addEventListener('scroll', debounce(checkSlide));
 
-/* ----- FAQs ----- */
-// $('.faq__body')
-//   .eq(0)
-//   .slideDown();
-
-$('.faq__box').on('click', function(e) {
-  if ($('.faq__sign', this).text() === '+') {
-    $('.faq__head').removeClass('js-open');
-    $('.faq__head', this).addClass('js-open');
-    $('.faq__body').slideUp();
-    $('.faq__sign').text('+');
-    $('.faq__head.js-open + .faq__body', this).slideDown();
-    $('.faq__sign', this).text('-');
-  } else if ($('.faq__sign', this).text() === '-') {
-    $('.faq__head.js-open + .faq__body', this).slideUp();
-    $('.faq__head').removeClass('js-open');
-    $('.faq__sign', this).text('+');
-  }
-
-  // if ($('.faq__sign', this).text() === '-') {
-  //   $('.faq__head', this).removeClass('js-open');
-  //   $('faq__body').slideUp();
-  //   $('.faq__head.js-open + .faq__body', this).slideDown();
-  // }
-});
-
-/* ----- Navigation ----- */
-
-// navigation toggling on mobile
-
-$('.nav-item a').on('click', function() {
-  $('.navbar').removeClass('open');
-  $('.nav-toggle').removeClass('open');
-});
-
 function toggleNav() {
   navToggler.classList.toggle('open');
   navbar.classList.toggle('open');
@@ -234,66 +199,11 @@ $(document).ready(function() {
 
 // Section Gallery ----> image preview functionality
 
-const galleryBoxes = document.querySelectorAll('.gallery-box'); // grab a collection of Gallery boxes.
-
-var image = function(e) {
-  const previewBox = document.querySelector('.gallery-preview-box'); // grab the preview div
-  const previewBoxImg = previewBox.firstElementChild; // grab the img inside the div
-
-  if (e.target.tagName === 'SPAN') {
-    // check what was clicked and...
-
-    var img = e.target.nextElementSibling; // ...go to the img directly
-    previewBoxImg.setAttribute('src', img.getAttribute('src')); // then set SRC to SRC of clicked img
-  } else {
-    var img = e.target.parentNode.nextElementSibling;
-    previewBoxImg.setAttribute('src', img.getAttribute('src'));
-  }
-
-  previewBox.classList.add('show'); // change display property of PREVIEW BOX by adding .show class
-
-  previewBox.addEventListener('click', () => {
-    previewBox.classList.remove('show'); // remove .show class
-  });
-  return img;
-};
-
 // alert(image);
 
 //
 //document.querySelector('.prev-foto').addEventListener('click', prev);
 //document.querySelector('.next-foto').addEventListener('click', next);
-
-galleryBoxes.forEach(box => box.addEventListener('click', image)); //loop through the gallery and attach event listeners to each gallery item
-
-// BENEFITS section change script below
-
-const benefitsParent = document.querySelector('.benefits-buttons');
-const benefitsButtons = document.querySelectorAll('.benefits-btn');
-const benefitsContentDivs = document.querySelectorAll('.benefits-content');
-
-function changeBenefit(e) {
-  const clickedBtn = e.target;
-  const clickedBtnData = clickedBtn.dataset.target;
-
-  for (let i = 0; i < benefitsButtons.length; i++) {
-    if (benefitsButtons[i].className === 'benefits-btn active') {
-      benefitsButtons[i].classList.remove('active');
-      benefitsContentDivs[i].classList.remove('active');
-    }
-
-    if (clickedBtnData === benefitsContentDivs[i].dataset.target) {
-      benefitsContentDivs[i].classList.add('active');
-    } else {
-      benefitsContentDivs[i].classList.remove('active');
-    }
-  }
-  clickedBtn.classList.add('active');
-}
-
-benefitsButtons.forEach(button =>
-  button.addEventListener('click', changeBenefit)
-);
 
 /* section PLANS scritp END */
 
@@ -329,6 +239,32 @@ $(document).ready(function() {
         },
         1000
       );
+  });
+
+  /* ----- FAQs ----- */
+
+  $('.faq__box').on('click', function(e) {
+    if ($('.faq__sign', this).text() === '+') {
+      $('.faq__head').removeClass('js-open');
+      $('.faq__head', this).addClass('js-open');
+      $('.faq__body').slideUp();
+      $('.faq__sign').text('+');
+      $('.faq__head.js-open + .faq__body', this).slideDown();
+      $('.faq__sign', this).text('-');
+    } else if ($('.faq__sign', this).text() === '-') {
+      $('.faq__head.js-open + .faq__body', this).slideUp();
+      $('.faq__head').removeClass('js-open');
+      $('.faq__sign', this).text('+');
+    }
+  });
+
+  /* ----- Navigation ----- */
+
+  // navigation toggling on mobile
+
+  $('.nav-item a').on('click', function() {
+    $('.navbar').removeClass('open');
+    $('.nav-toggle').removeClass('open');
   });
 
   // $('#about').click(function() {

@@ -53,18 +53,6 @@ function toggleNav() {
   navbar.classList.toggle('open');
 }
 
-// document.addEventListener('click', function (e) {
-//     console.log(navToggler.classList.contains('open'));
-//     // e.stopPropagation();
-//     if (navbar.classList.contains('open')) {
-//         if (e.target !== navbar && navToggler.classList.contains('open')) {
-//             navToggler.classList.remove('open');
-//             navbar.classList.remove('open');
-//             alert();
-//         }
-//     }
-// });
-
 navToggler.addEventListener('click', toggleNav);
 
 // navigation sticky on desktop
@@ -96,42 +84,11 @@ function headerFade() {
 
 window.addEventListener('scroll', headerFade);
 
-/* ----- FAQ accordion ---- */
-
-// function toggleFAQs(e) {
-//     if (e.target.tagName === 'BUTTON') {
-//         document.querySelectorAll('.faq__button').forEach(function (btn) {
-//             btn.classList.add('collapsed');
-//             btn.textContent = '+';
-//         });
-//         e.target.classList.remove('collapsed');
-//         e.target.textContent = '-';
-//     }
-// }
-
-// document.querySelector('.faq').addEventListener('click', toggleFAQs);
-
-/* ----- LightGallery JS plugin init ---- */
+/* ----- LightGallery JS plugin init below  ---- */
 
 lightGallery(document.getElementById('lightgallery'));
 
-// Google Maps settings below
-
-// var map = new GMaps({
-//     div: '#map',
-//     lat: 50.0301489,
-//     lng: 19.918081,
-//     zoom: 12
-// });
-
-// map.addMarker({
-//     lat: 50.0301489,
-//     lng: 19.918081,
-//     title: 'Our main office',
-//     infoWindow: {
-//         content: '<p>Our main office</p>'
-//     }
-// });
+/* ----- Leaflet Map JS plugin init below ---- */
 
 var mymap = L.map('map').setView([51.505, -0.09], 13);
 
@@ -142,77 +99,24 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 $(document).ready(function() {
   // .last-minute sliding on mobile
-  $('.last-minute__heading').on('click', function(e) {
-    e.preventDefault();
+  //   $('.last-minute__heading').on('click', function(e) {
+  //     e.preventDefault();
 
-    // check if items are in column layout
-    if ($('.last-minute').css('flex-direction') === 'column') {
-      $(this)
-        .next()
-        .children('.last-minute__about')
-        .slideToggle();
-    }
-  });
-});
+  //     // check if items are in column layout
+  //     if ($('.last-minute').css('flex-direction') === 'column') {
+  //       $(this)
+  //         .next()
+  //         .children('.last-minute__about')
+  //         .slideToggle();
+  //     }
+  //   });
+  // });
 
-/* ---------- add classes on scroll ------ */
-
-/* --------- Code below needs to be refactored ---------*/
-
-/* section PLANS scritp START */
-
-// let date = new Date();
-// let month = date.getMonth();
-// let dayOfMonth = date.getDate();
-// let fullYear = date.getFullYear();
-
-// let daysLeft = 0;
-
-// function setLastMinuteTime() {
-
-//     if ((month + 1) % 2 === 0 && (month + 1) !== 2) {
-//         daysLeft = 31 - dayOfMonth;
-//         return daysLeft;
-//     } else if ((month + 1) % 2 === 1) {
-//         daysLeft = 30 - dayOfMonth;
-//         return daysLeft;
-//     } else {
-
-//         if ((fullYear % 4 == 0) && (fullYear % 100 != 0) || (fullYear % 400 == 0)) {
-//             daysLeft = 29 - dayOfMonth;
-//             return daysLeft;
-//         } else {
-//             daysLeft = 28 - dayOfMonth;
-//             return daysLeft;
-//         }
-//     }
-// }
-
-// function printDaysLeft() {
-//     const daysLeft = setLastMinuteTime();
-//     document.querySelector('.last-minute-timer span').textContent = daysLeft;
-// }
-
-// printDaysLeft();
-
-// -----------------------------
-
-// Section Gallery ----> image preview functionality
-
-// alert(image);
-
-//
-//document.querySelector('.prev-foto').addEventListener('click', prev);
-//document.querySelector('.next-foto').addEventListener('click', next);
-
-/* section PLANS scritp END */
-
-var $about = $('.section-about');
-
-$ = jQuery;
-
-$(document).ready(function() {
   // ARROW - slide down behavior below...
+
+  var $about = $('.section-about');
+
+  $ = jQuery;
 
   $('#arrow-down').click(function() {
     $('body,html').animate(
@@ -267,39 +171,6 @@ $(document).ready(function() {
     $('.nav-toggle').removeClass('open');
   });
 
-  // $('#about').click(function() {
-  //   $('body,html')
-  //     .stop()
-  //     .animate(
-  //       {
-  //         scrollTop: $('.section-about').offset().top
-  //       },
-  //       1000
-  //     );
-  // });
-
-  // $('#gallery').click(function() {
-  //   $('body,html')
-  //     .stop()
-  //     .animate(
-  //       {
-  //         scrollTop: $('.section-gallery').offset().top
-  //       },
-  //       1000
-  //     );
-  // });
-
-  // $('#contact').click(function() {
-  //   $('body,html')
-  //     .stop()
-  //     .animate(
-  //       {
-  //         scrollTop: $('.section-contact').offset().top
-  //       },
-  //       1000
-  //     );
-  // });
-
   // Animations on scroll
 
   $('.js--wp-1').waypoint(
@@ -311,46 +182,28 @@ $(document).ready(function() {
     }
   );
 
-  //$('.best-offer').on(
-  //    "click",
-  //    function () {
-  //      if ($('.show', this).text() === "+") {
-  //        console.log("+");
-  //        $('.photo-box', this).addClass('js-open')
-  //        $('div.js-open + article', this).slideDown();
-  //        $('.show', this).text("-");
-  //      } else if ($('.show', this).text() === "-") {
-  //        console.log("-");
-  //        $('.photo-box', this).removeClass('js-open')
-  //        $('article', this).slideUp();
-  //        $('.show', this).text("+");
-  //      }
-  //
-  //    });  // BEST jQuery script
+  // HOW fadeIN on scroll
 
-  // Navigation on mobile behavior below...
+  var howBoxes = document.querySelectorAll('.how__box');
+  var howBoxesArr = Array.prototype.slice.call(howBoxes);
+  console.log(howBoxesArr);
 
-  // $('.nav-toggle').click(function () {
-  //     $(this).toggleClass('open');
-  //     $('nav.mobile').toggleClass('nav-active');
-  //     $('nav.mobile').click(function () {
-  //         $('nav.mobile').removeClass('nav-active');
-  //         $('.nav-toggle').removeClass('open');
-  //     });
+  // howBoxes.forEach(cur => (cur.style.display = 'none'));
 
-  //     return false;
-  // });
+  var $line = $('.how__line');
 
-  // POPUP show
+  $(window).on('scroll', function() {
+    $scroll = $(document).scrollTop();
+    console.log($scroll);
+    console.log(window.scrollY);
 
-  //    setTimeout(function() {
-  //        $('.newsletter-popup').fadeIn().css('display', 'flex');
-  //    }, 4000);
-  //
-  //    // popup listener
-  //    $('.submit-btn, .popup-close').on('click', function(e) {
-  //        e.preventDefault();
-  //        $('.newsletter-popup').fadeOut();
-  //    });
-  //
+    howBoxesArr.forEach(function(cur, index) {
+      if (window.scrollY > $(cur).offset().top - window.innerHeight * 0.7) {
+        $(cur).addClass('js-show');
+        // $line.css('height', );
+      } else {
+        $(cur).removeClass('js-show');
+      }
+    });
+  });
 });

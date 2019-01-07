@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
+const browserSync = require('browser-sync').create();
+const watch = require('gulp-watch');
 const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
@@ -7,13 +9,8 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
-
-//gulp.task('default', function () {
-//    gulp.src('src/**/*.css')
-//        .pipe(cssmin())
-//        .pipe(rename({suffix: '.min'}))
-//        .pipe(gulp.dest('dist'));
-//});
+const gutil = require('gulp-util');
+const ftp = require('vinyl-ftp');
 
 gulp.task('build-fonts', function() {
   gulp
@@ -48,19 +45,24 @@ gulp.task('imagemin', function() {
 gulp.task('build-styles', function() {
   return (
     gulp
-      .src('./src/css/*.css')
+      .src('./src/css/develop/develop.css')
       //            .pipe( sourcemaps.init() )
       .pipe(
         autoprefixer({
           browsers: ['last 2 versions'],
-          cascade: false
+          cascade: false,
+          grid: 'autoplace'
         })
       )
-      .pipe(cssmin())
-      //   .pipe(rename({ suffix: '.min' }))
-      //   .pipe(sourcemaps.write('./'))
+      // .pipe(cssmin())
+      .pipe(rename('style.min.css'))
 
-      .pipe(gulp.dest('./dist/css'))
+      .pipe(gulp.dest('./src/css/'))
+      .pipe(
+        browserSync.reload({
+          stream: true
+        })
+      )
   );
 });
 
@@ -80,8 +82,22 @@ gulp.task('build', function(callback) {
   );
 });
 
-var gutil = require('gulp-util');
-var ftp = require('vinyl-ftp');
+gulp.task('watch', ['browser-sync'], function() {
+  gulp.watch('./src/css/**/*', ['build-styles']);
+  gulp.watch('./src/js/**/*', browserSync.reload);
+});
+
+// Static server
+
+gulp.task('browser-sync', function() {
+  browserSync.init({
+    server: {
+      baseDir: './src'
+    }
+  });
+});
+
+// FTP UPLOAD task
 
 /** Configuration **/
 var user = process.env.FTP_USER;

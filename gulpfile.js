@@ -5,28 +5,31 @@ const watch = require('gulp-watch');
 const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
+const useref = require('gulp-useref');
+const gulpif = require('gulp-if');
 const rename = require('gulp-rename');
+const replace = require('gulp-replace');
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 const concat = require('gulp-concat');
 const gutil = require('gulp-util');
 const ftp = require('vinyl-ftp');
 
-gulp.task('build-fonts', function() {
+gulp.task('build-fonts', function () {
   gulp
     .src('./src/fonts/**/*')
     // Perform minification tasks, etc here
     .pipe(gulp.dest('./dist/fonts'));
 });
 
-gulp.task('build-html', function() {
+gulp.task('build-html', function () {
   gulp
     .src('./src/index.html')
     // Perform minification tasks, etc here
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build-scripts', function() {
+gulp.task('build-scripts', function () {
   return (
     gulp
       .src('./src/js/**/*.js')
@@ -35,14 +38,14 @@ gulp.task('build-scripts', function() {
   );
 });
 
-gulp.task('imagemin', function() {
+gulp.task('imagemin', function () {
   return gulp
     .src('./src/img/*')
     .pipe(imagemin())
     .pipe(gulp.dest('./dist/img'));
 });
 
-gulp.task('build-styles', function() {
+gulp.task('compile-styles', function () {
   return (
     gulp
       .src('./src/css/develop/develop.css')
@@ -54,7 +57,6 @@ gulp.task('build-styles', function() {
           grid: 'autoplace'
         })
       )
-      // .pipe(cssmin())
       .pipe(rename('style.min.css'))
 
       .pipe(gulp.dest('./src/css/'))
@@ -66,14 +68,14 @@ gulp.task('build-styles', function() {
   );
 });
 
-gulp.task('build-clean', function() {
+gulp.task('build-clean', function () {
   // Return the Promise from del()
   return del('dist');
   //  ^^^^^^
   //   This is the key here, to make sure asynchronous tasks are done!
 });
 
-gulp.task('build', function(callback) {
+gulp.task('build', function (callback) {
   runSequence(
     'build-clean',
     ['build-styles', 'build-scripts', 'build-fonts', 'imagemin'],
@@ -82,19 +84,29 @@ gulp.task('build', function(callback) {
   );
 });
 
-gulp.task('watch', ['browser-sync'], function() {
-  gulp.watch('./src/css/**/*', ['build-styles']);
+gulp.task('watch', ['browser-sync'], function () {
+  gulp.watch('./src/css/**/*', ['compile-styles']);
   gulp.watch('./src/js/**/*', browserSync.reload);
 });
 
 // Static server
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
   browserSync.init({
     server: {
       baseDir: './src'
     }
   });
+});
+
+
+gulp.task('concat-styles', function () {
+  return gulp.src('./src/index.html')
+    .pipe(useref())
+    // .pipe(gulpif('*.js', uglify()))
+    .pipe(gulpif('*.css', cssmin()))
+    .pipe(replace('../fonts/', '../fonts/font-awesome/fonts/'))
+    .pipe(gulp.dest('dist'));
 });
 
 // FTP UPLOAD task
@@ -125,11 +137,14 @@ function getFtpConnection() {
  *
  * Usage: `FTP_USER=someuser FTP_PWD=somepwd gulp ftp-deploy`
  */
-gulp.task('ftp-deploy', function() {
+gulp.task('ftp-deploy', function () {
   var conn = getFtpConnection();
 
   return gulp
     .src(localFilesGlob, { base: './dist', buffer: false })
+    // .pipe(conn.delete(remoteFolder, function () {
+    // return;
+    // }))
     .pipe(conn.newer(remoteFolder)) // only upload newer files
     .pipe(conn.dest(remoteFolder));
 });
@@ -140,10 +155,10 @@ gulp.task('ftp-deploy', function() {
  *
  * Usage: `FTP_USER=someuser FTP_PWD=somepwd gulp ftp-deploy-watch`
  */
-gulp.task('ftp-deploy-watch', function() {
+gulp.task('ftp-deploy-watch', function () {
   var conn = getFtpConnection();
 
-  gulp.watch(localFilesGlob).on('change', function(event) {
+  gulp.watch(localFilesGlob).on('change', function (event) {
     console.log(
       'Changes detected! Uploading file "' + event.path + '", ' + event.type
     );

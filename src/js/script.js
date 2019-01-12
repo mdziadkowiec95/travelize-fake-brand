@@ -1,3 +1,5 @@
+
+
 /* ------- GLOBAL variables ---------*/
 var header = document.querySelector('.header'),
   headerOverlay = document.querySelector('.header-overlay'),
@@ -10,10 +12,10 @@ var header = document.querySelector('.header'),
 
 function debounce(func, wait, immediate) {
   var timeout;
-  return function() {
+  return function () {
     var context = this,
       args = arguments;
-    var later = function() {
+    var later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
@@ -86,18 +88,51 @@ window.addEventListener('scroll', headerFade);
 
 /* ----- LightGallery JS plugin init below  ---- */
 
-lightGallery(document.getElementById('lightgallery'));
+lightGallery(document.getElementById('lightgallery'), {
+  // mode: 'lg-zoom-out',
+  cssEasing: 'cubic-bezier(0.250, 0.460, 0.450, 0.940)',
+  counter: true,
+  download: false
+});
 
 /* ----- Leaflet Map JS plugin init below ---- */
 
-var mymap = L.map('map').setView([51.505, -0.09], 13);
+var mymap = L.map('map').setView([41.879225, -87.629236], 25);
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution:
     '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
-$(document).ready(function() {
+
+
+L.marker([41.879225, -87.629236]).addTo(mymap)
+  .bindPopup('<strong>Our office</strong>')
+  .openPopup();
+
+$(document).ready(function () {
+
+  $('.opinions').slick({
+    slidesToShow: 1,
+    centerMode: true,
+    centerPadding: '25%',
+    nextArrow: '<div class="slick-nav slick-nav-right"><button type="button" class="slick-button slick-next"></button></div>',
+    prevArrow: '<div class="slick-nav slick-nav-left"><button type="button" class="slick-button slick-prev"></button></',
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: '0'
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
   // .last-minute sliding on mobile
   //   $('.last-minute__heading').on('click', function(e) {
   //     e.preventDefault();
@@ -118,19 +153,19 @@ $(document).ready(function() {
 
   $ = jQuery;
 
-  $('#arrow-down').click(function() {
+  $('#arrow-down').click(function () {
     $('body,html').animate(
       {
         scrollTop: $about.offset().top
       },
       1000,
-      function() {}
+      function () { }
     );
   });
 
   // Menu item animation after click below...
 
-  $('.nav-item').click(function(e) {
+  $('.nav-item').click(function (e) {
     e.preventDefault();
 
     var $scrollTo = $(this).attr('id');
@@ -145,18 +180,62 @@ $(document).ready(function() {
       );
   });
 
+  /* ----- OPINIONS ----- */
+
+
+  // var opiniosWrapperEl = document.querySelector('.opinions');
+  // var opinionBoxes = opiniosWrapperEl.children;
+  // var actualTransform = 0;
+  // var activeSlide = 1;
+
+  // function changeOpinion(e) {
+
+  //   if (e.target.tagName === 'BUTTON' || e.type === 'keyup') {
+  //     var direction = e.target.dataset.target;
+
+  //     console.log(direction);
+  //     console.log(e.keyCode);
+
+  //     if (((direction === 'next') || (e.keyCode === 39)) && (activeSlide < opinionBoxes.length)) {
+  //       actualTransform -= 100 / 3;
+
+  //       activeSlide++;
+
+  //       opiniosWrapperEl.style.transform = 'translateX(' + actualTransform + '%)';
+
+  //     } else if (((direction === 'prev') || (e.keyCode === 37)) && (activeSlide > 1)) {
+  //       actualTransform += 100 / 3;
+
+  //       activeSlide--;
+
+  //       opiniosWrapperEl.style.transform = 'translateX(' + actualTransform + '%)';
+  //     }
+
+  //   }
+  // }
+
+  // document.querySelector('.opinions__button-box').addEventListener('click', changeOpinion);
+
+  // document.addEventListener('keyup', changeOpinion);
+
+
+
+
+
+
+
   /* ----- FAQs ----- */
 
-  $('.faq__box').on('click', function(e) {
+  $('.faq__box').on('click', function (e) {
     if ($('.faq__sign', this).text() === '+') {
       $('.faq__head').removeClass('js-open');
       $('.faq__head', this).addClass('js-open');
-      $('.faq__body').slideUp();
+      $('.faq__body').slideUp(300);
       $('.faq__sign').text('+');
-      $('.faq__head.js-open + .faq__body', this).slideDown();
+      $('.faq__head.js-open + .faq__body', this).slideDown(300);
       $('.faq__sign', this).text('-');
     } else if ($('.faq__sign', this).text() === '-') {
-      $('.faq__head.js-open + .faq__body', this).slideUp();
+      $('.faq__head.js-open + .faq__body', this).slideUp(300);
       $('.faq__head').removeClass('js-open');
       $('.faq__sign', this).text('+');
     }
@@ -166,7 +245,7 @@ $(document).ready(function() {
 
   // navigation toggling on mobile
 
-  $('.nav-item a').on('click', function() {
+  $('.nav-item a').on('click', function () {
     $('.navbar').removeClass('open');
     $('.nav-toggle').removeClass('open');
   });
@@ -174,7 +253,7 @@ $(document).ready(function() {
   // Animations on scroll
 
   $('.js--wp-1').waypoint(
-    function(direction) {
+    function (direction) {
       $('.js--wp-1').addClass('animated');
     },
     {
@@ -192,12 +271,12 @@ $(document).ready(function() {
 
   var $line = $('.how__line');
 
-  $(window).on('scroll', function() {
+  $(window).on('scroll', function () {
     $scroll = $(document).scrollTop();
     console.log($scroll);
     console.log(window.scrollY);
 
-    howBoxesArr.forEach(function(cur, index) {
+    howBoxesArr.forEach(function (cur, index) {
       if (window.scrollY > $(cur).offset().top - window.innerHeight * 0.7) {
         $(cur).addClass('js-show');
         // $line.css('height', );

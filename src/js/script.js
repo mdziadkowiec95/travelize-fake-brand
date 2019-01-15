@@ -69,7 +69,7 @@ function stickNavbar() {
   }
 }
 
-window.addEventListener('scroll', debounce(stickNavbar, 15));
+window.addEventListener('scroll', stickNavbar);
 
 /* ----------------------------------*/
 /* ---- HEADER opacity on scroll ----*/
@@ -252,14 +252,21 @@ $(document).ready(function () {
 
   // Animations on scroll
 
-  $('.js--wp-1').waypoint(
-    function (direction) {
-      $('.js--wp-1').addClass('animated');
-    },
-    {
-      offset: '70%'
-    }
-  );
+  $(window).on('scroll', function () {
+    console.log(window.scrollY);
+    console.log($('.js--wp-1').offset().top);
+
+
+  });
+
+  // $('.js--wp-1').waypoint(
+  //   function (direction) {
+  //     $('.js--wp-1').addClass('animated');
+  //   },
+  //   {
+  //     offset: '70%'
+  //   }
+  // );
 
   // HOW fadeIN on scroll
 
@@ -269,13 +276,18 @@ $(document).ready(function () {
 
   // howBoxes.forEach(cur => (cur.style.display = 'none'));
 
-  var $line = $('.how__line');
+  // var $line = $('.how__line');
 
   $(window).on('scroll', function () {
-    $scroll = $(document).scrollTop();
-    console.log($scroll);
-    console.log(window.scrollY);
+    // console.log($scroll);
+    // console.log(window.scrollY);
 
+    // ABOUT boxes fade In
+    if (window.scrollY > (($('.js--wp-1').offset().top - window.innerHeight * 0.6))) {
+      $('.js--wp-1').addClass('animated');
+    }
+
+    // Steps fade toggle
     howBoxesArr.forEach(function (cur, index) {
       if (window.scrollY > $(cur).offset().top - window.innerHeight * 0.7) {
         $(cur).addClass('js-show');

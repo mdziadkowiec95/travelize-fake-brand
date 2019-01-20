@@ -57,6 +57,21 @@ function toggleNav() {
 
 navToggler.addEventListener('click', toggleNav);
 
+/**
+ * on SCROLL functions below
+ */
+
+
+// header section fadeOut on scroll
+function headerFade() {
+  var headerHeight = header.offsetHeight;
+  var scrolledTop = window.scrollY;
+  var opacityPercentage = scrolledTop / headerHeight;
+
+  headerOverlay.style.backgroundColor =
+    'rgba(255, 255, 255, ' + opacityPercentage + ')';
+}
+
 // navigation sticky on desktop
 function stickNavbar() {
   var headerHeight = header.offsetHeight;
@@ -69,22 +84,91 @@ function stickNavbar() {
   }
 }
 
-window.addEventListener('scroll', stickNavbar);
+
+// all elemtnts to add transition on scroll
+var elToShowOnScroll = Array.prototype.slice.call(document.querySelectorAll('.show-on-scroll'));
+var howBoxes = Array.prototype.slice.call(document.querySelectorAll('.how__box'));
+
+function showOnScroll() {
+
+  var counter = 0 - 3; // 0 minus 3 becouse there are 3 elements with .show-on-scroll class before 
+
+  elToShowOnScroll.forEach(function (el) {
+    if (el.getBoundingClientRect().top < (window.innerHeight * (!el.classList.contains('how__box') ? 0.8 : 0.75))) {
+      el.classList.add('animated');
+      counter++;
+
+      // how
+      if (counter >= 0) {
+        drawLine(counter);
+      }
+
+    } else {
+      el.classList.remove('animated');
+    }
+  });
+
+  function drawLine(num) {
+    var fraction = num / howBoxes.length;
+    var height = fraction * 100;
+
+    document.querySelector('.how__line').style.maxHeight = height + '%';
+
+  }
+
+
+
+
+  /**
+   * first option but it looks like there is a problem with relative parent (offsetTop)
+   */
+
+  // elToShowOnScroll.forEach(function (el) {
+  //   if (window.scrollY + window.innerHeight > el.offsetTop + (el.offsetHeight / 2)) {
+  //     el.classList.add('animated');
+  //   } else {
+  //     el.classList.remove('animated');
+  //   }
+  // });
+}
+
+
+function showSteps() {
+
+
+}
+
+
+// var counter = 0;
+
+
+
+
+
+// function drawLine(num) {
+//   var fraction = num / 100;
+//   var height = fraction * num;
+
+//   document.querySelector('.how__line').style.height = height + '%';
+
+// }
+
+window.addEventListener('scroll', function () {
+  headerFade();
+  stickNavbar();
+  debounce(showOnScroll(), 30);
+  // showOnScroll();
+});
+
+
 
 /* ----------------------------------*/
 /* ---- HEADER opacity on scroll ----*/
 /* ----------------------------------*/
 
-function headerFade() {
-  var headerHeight = header.offsetHeight;
-  var scrolledTop = window.scrollY;
-  var opacityPercentage = scrolledTop / headerHeight;
 
-  headerOverlay.style.backgroundColor =
-    'rgba(255, 255, 255, ' + opacityPercentage + ')';
-}
 
-window.addEventListener('scroll', headerFade);
+// window.addEventListener('scroll', headerFade);
 
 /* ----- LightGallery JS plugin init below  ---- */
 
@@ -95,7 +179,7 @@ lightGallery(document.getElementById('lightgallery'), {
   download: false
 });
 
-/* ----- Leaflet Map JS plugin init below ---- */
+/* ----- Leaflet Map JS plugin init START ---- */
 
 var mymap = L.map('map').setView([41.879225, -87.629236], 25);
 
@@ -104,11 +188,11 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(mymap);
 
-
-
 L.marker([41.879225, -87.629236]).addTo(mymap)
   .bindPopup('<strong>Our office</strong>')
   .openPopup();
+
+/* ----- Leaflet Map JS plugin END ---- */
 
 $(document).ready(function () {
 
@@ -133,19 +217,6 @@ $(document).ready(function () {
       // instead of a settings object
     ]
   });
-  // .last-minute sliding on mobile
-  //   $('.last-minute__heading').on('click', function(e) {
-  //     e.preventDefault();
-
-  //     // check if items are in column layout
-  //     if ($('.last-minute').css('flex-direction') === 'column') {
-  //       $(this)
-  //         .next()
-  //         .children('.last-minute__about')
-  //         .slideToggle();
-  //     }
-  //   });
-  // });
 
   // ARROW - slide down behavior below...
 
@@ -180,50 +251,6 @@ $(document).ready(function () {
       );
   });
 
-  /* ----- OPINIONS ----- */
-
-
-  // var opiniosWrapperEl = document.querySelector('.opinions');
-  // var opinionBoxes = opiniosWrapperEl.children;
-  // var actualTransform = 0;
-  // var activeSlide = 1;
-
-  // function changeOpinion(e) {
-
-  //   if (e.target.tagName === 'BUTTON' || e.type === 'keyup') {
-  //     var direction = e.target.dataset.target;
-
-  //     console.log(direction);
-  //     console.log(e.keyCode);
-
-  //     if (((direction === 'next') || (e.keyCode === 39)) && (activeSlide < opinionBoxes.length)) {
-  //       actualTransform -= 100 / 3;
-
-  //       activeSlide++;
-
-  //       opiniosWrapperEl.style.transform = 'translateX(' + actualTransform + '%)';
-
-  //     } else if (((direction === 'prev') || (e.keyCode === 37)) && (activeSlide > 1)) {
-  //       actualTransform += 100 / 3;
-
-  //       activeSlide--;
-
-  //       opiniosWrapperEl.style.transform = 'translateX(' + actualTransform + '%)';
-  //     }
-
-  //   }
-  // }
-
-  // document.querySelector('.opinions__button-box').addEventListener('click', changeOpinion);
-
-  // document.addEventListener('keyup', changeOpinion);
-
-
-
-
-
-
-
   /* ----- FAQs ----- */
 
   $('.faq__box').on('click', function (e) {
@@ -252,13 +279,6 @@ $(document).ready(function () {
 
   // Animations on scroll
 
-  $(window).on('scroll', function () {
-    console.log(window.scrollY);
-    console.log($('.js--wp-1').offset().top);
-
-
-  });
-
   // $('.js--wp-1').waypoint(
   //   function (direction) {
   //     $('.js--wp-1').addClass('animated');
@@ -276,25 +296,27 @@ $(document).ready(function () {
 
   // howBoxes.forEach(cur => (cur.style.display = 'none'));
 
-  // var $line = $('.how__line');
 
-  $(window).on('scroll', function () {
-    // console.log($scroll);
-    // console.log(window.scrollY);
 
-    // ABOUT boxes fade In
-    if (window.scrollY > (($('.js--wp-1').offset().top - window.innerHeight * 0.6))) {
-      $('.js--wp-1').addClass('animated');
-    }
 
-    // Steps fade toggle
-    howBoxesArr.forEach(function (cur, index) {
-      if (window.scrollY > $(cur).offset().top - window.innerHeight * 0.7) {
-        $(cur).addClass('js-show');
-        // $line.css('height', );
-      } else {
-        $(cur).removeClass('js-show');
-      }
-    });
-  });
+  // $(window).on('scroll', function () {
+  //   // console.log($scroll);
+  //   // console.log(window.scrollY);
+
+  //   // ABOUT boxes fade In
+  //   if (window.scrollY > (($('.js--wp-1').offset().top - window.innerHeight * 0.6))) {
+  //     $('.js--wp-1').addClass('animated');
+  //   }
+
+  //   // Steps fade toggle
+  //   howBoxesArr.forEach(function (cur, index) {
+  //     if (window.scrollY > $(cur).offset().top - window.innerHeight * 0.7) {
+  //       $(cur).addClass('js-show');
+  //       // $line.css('height', );
+  //     } else {
+  //       $(cur).removeClass('js-show');
+  //     }
+  //   });
+  // });
+
 });

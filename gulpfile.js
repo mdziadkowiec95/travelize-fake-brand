@@ -78,7 +78,7 @@ gulp.task('build-clean', function () {
 gulp.task('build', function (callback) {
   runSequence(
     'build-clean',
-    ['build-styles', 'build-scripts', 'build-fonts', 'imagemin'],
+    ['concat-styles', 'build-scripts', 'build-fonts', 'imagemin'],
     'build-html',
     callback
   );

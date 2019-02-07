@@ -1,3 +1,27 @@
+/* primary */
+#6a9a7b
+rgba(106, 154, 123, 1)
+/* accent */
+#BF6D4B
+rgba(191, 109, 75, 1)
+
+/* NEW concepts */
+
+/* color accent */
+#BF6D4B
+rgba(191, 109, 75, 1)
+/* color navy */
+#71b280
+rgba(113, 178, 128, 1)
+
+/* color dark navy */
+
+#134e5e
+
+
+background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 /* white */
 
 rgb(255, 255, 255)
@@ -19,6 +43,9 @@ rgba(40,48,24, 1)
 
 #aa863a
 rgb(170,134,58)
+
+
+
 
 
 

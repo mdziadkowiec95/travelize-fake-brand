@@ -132,13 +132,6 @@ function showOnScroll() {
   // });
 }
 
-
-function showSteps() {
-
-
-}
-
-
 // var counter = 0;
 
 
@@ -154,7 +147,7 @@ function showSteps() {
 // }
 
 window.addEventListener('scroll', function () {
-  headerFade();
+  // headerFade();
   stickNavbar();
   debounce(showOnScroll(), 30);
   // showOnScroll();
@@ -196,10 +189,10 @@ L.marker([41.879225, -87.629236]).addTo(mymap)
 
 $(document).ready(function () {
 
-  $('.opinions').slick({
+  $('.opinions__slider').slick({
     slidesToShow: 1,
     centerMode: true,
-    centerPadding: '25%',
+    centerPadding: 'auto',
     nextArrow: '<div class="slick-nav slick-nav-right"><button type="button" class="slick-button slick-next"></button></div>',
     prevArrow: '<div class="slick-nav slick-nav-left"><button type="button" class="slick-button slick-prev"></button></',
     dots: true,

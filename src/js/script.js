@@ -1,6 +1,10 @@
 
 
 /* ------- GLOBAL variables ---------*/
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('.loading-view').classList.add('hidden');
+});
+
 var header = document.querySelector('.header'),
   headerOverlay = document.querySelector('.header-overlay'),
   navToggler = document.querySelector('.nav-toggle'),
@@ -83,6 +87,8 @@ function stickNavbar() {
     navbar.classList.remove('js-sticky');
   }
 }
+
+
 
 
 // all elemtnts to add transition on scroll

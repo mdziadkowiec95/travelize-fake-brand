@@ -54,7 +54,7 @@ gulp.task('compile-styles', function () {
         autoprefixer({
           browsers: ['last 2 versions'],
           cascade: false,
-          grid: 'autoplace'
+          grid: true
         })
       )
       .pipe(rename('style.min.css'))

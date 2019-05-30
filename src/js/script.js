@@ -30,30 +30,6 @@ function debounce(func, wait, immediate) {
   };
 }
 
-// var sliderImages = document.querySelectorAll('.slide-in');
-
-// function checkSlide() {
-//     console.log('ok');
-//     sliderImages.forEach(function (sliderImage) {
-//         // half way through the image
-//         var slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
-//         // bottom of the image
-//         var imageBottom = sliderImage.offsetTop + sliderImage.height;
-//         var isHalfShown = slideInAt > sliderImage.offsetTop;
-//         var isNotScrolledPast = window.scrollY < imageBottom;
-//         console.log(imageBottom);
-//         console.log(isHalfShown);
-//         console.log(isNotScrolledPast);
-//         if (isHalfShown && isNotScrolledPast) {
-//             sliderImage.classList.add('active');
-//         } else {
-//             sliderImage.classList.remove('active');
-//         }
-//     });
-// }
-
-// window.addEventListener('scroll', debounce(checkSlide));
-
 function toggleNav() {
   navToggler.classList.toggle('open');
   navbar.classList.toggle('open');
@@ -88,16 +64,13 @@ function stickNavbar() {
   }
 }
 
-
-
-
 // all elemtnts to add transition on scroll
 var elToShowOnScroll = Array.prototype.slice.call(document.querySelectorAll('.show-on-scroll'));
 var howBoxes = Array.prototype.slice.call(document.querySelectorAll('.how__box'));
 
 function showOnScroll() {
 
-  var counter = 0 - 3; // 0 minus 3 becouse there are 3 elements with .show-on-scroll class before 
+  var counter = 0 - 3; // 0 minus 3 because there are 3 elements with .show-on-scroll class before 
 
   elToShowOnScroll.forEach(function (el) {
     if (el.getBoundingClientRect().top < (window.innerHeight * (!el.classList.contains('how__box') ? 0.8 : 0.75))) {
@@ -122,38 +95,11 @@ function showOnScroll() {
 
   }
 
-
-
-
-  /**
-   * first option but it looks like there is a problem with relative parent (offsetTop)
-   */
-
-  // elToShowOnScroll.forEach(function (el) {
-  //   if (window.scrollY + window.innerHeight > el.offsetTop + (el.offsetHeight / 2)) {
-  //     el.classList.add('animated');
-  //   } else {
-  //     el.classList.remove('animated');
-  //   }
-  // });
 }
 
-// var counter = 0;
-
-
-
-
-
-// function drawLine(num) {
-//   var fraction = num / 100;
-//   var height = fraction * num;
-
-//   document.querySelector('.how__line').style.height = height + '%';
-
-// }
 
 window.addEventListener('scroll', function () {
-  // headerFade();
+
   stickNavbar();
   debounce(showOnScroll(), 30);
   // showOnScroll();
@@ -178,20 +124,7 @@ lightGallery(document.getElementById('lightgallery'), {
   download: false
 });
 
-/* ----- Leaflet Map JS plugin init START ---- */
-
-var mymap = L.map('map').setView([41.879225, -87.629236], 25);
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution:
-    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(mymap);
-
-L.marker([41.879225, -87.629236]).addTo(mymap)
-  .bindPopup('<strong>Our office</strong>')
-  .openPopup();
-
-/* ----- Leaflet Map JS plugin END ---- */
+/** FAQ collapse tabs */
 
 $(document).ready(function () {
 
@@ -228,7 +161,7 @@ $(document).ready(function () {
       {
         scrollTop: $about.offset().top
       },
-      1000,
+      600,
       function () { }
     );
   });
@@ -246,7 +179,7 @@ $(document).ready(function () {
         {
           scrollTop: $('.section-' + $scrollTo).offset().top
         },
-        1000
+        800
       );
   });
 

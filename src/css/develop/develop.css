@@ -610,10 +610,16 @@ nav {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: none;
   z-index: 1020;
+  /* opacity: 0; */
+  /* border-radius: 50%; */
+  /* transform: scale(.97); */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .navbar.open {
   left: 0;
+  /* border-radius: 0; */
+  /* opacity: 1; */
+  /* transform: scale(1); */
 }
 
 .main-nav {
@@ -627,13 +633,14 @@ nav {
 
 .main-nav .nav-item {
   width: 100%;
+  
 }
 
 .main-nav .nav-item a:link,
 .main-nav .nav-item a:visited {
   display: block;
-  
-  font-size: 1em;
+  padding: 1rem 0;
+  font-size: 1.6em;
   text-align: center;
   text-transform: uppercase;
   color: rgb(40, 48, 24);
@@ -1135,9 +1142,8 @@ nav {
 }
 
 .partners__logo {
-  max-width: 160px;
+  max-width: 106px;
   max-height: 100px;
-  -ms-flex-item-align: center;
   align-self: center;
   justify-self: center;
 }
@@ -1477,6 +1483,12 @@ nav {
   margin: 0 auto;
 }
 
+.footer__copyright {
+  text-align: center;
+  margin-bottom: 1em; 
+  font-size: .8em;
+}
+ 
 .newsletter {
   display: flex;
   flex-direction: column;
@@ -1487,7 +1499,8 @@ nav {
   position: relative;
   width: 100%;
   background-color: transparent;
-  margin-right: .7rem;
+  margin-right: .7em;
+  margin-bottom: .5em;
   outline: none;
   border: none;
   border-bottom: 2px solid #1477B5;
@@ -1821,7 +1834,7 @@ nav {
 
   .main-nav .nav-item {
     width: auto;
-    margin: 1em 1em .5em 1em;
+    margin: 1em .5em .5em .5em;
   }
 
   .main-nav .nav-item:last-child {
@@ -1830,8 +1843,8 @@ nav {
 
   .main-nav .nav-item a:link,
   .main-nav .nav-item a:visited {
-    padding-bottom: .5rem;
-    font-size: 1.1em;
+    padding-bottom: 0 .5rem;
+    font-size: 1em;
     color: #fff;
     border-bottom: 2px solid transparent;
   }
